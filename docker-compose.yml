@@ -12,6 +12,7 @@ services:
     depends_on:
       - "personalblog-db"
       - "personalblog-mail"
+      - "personalblog-nodejs" 
     networks:
       - app
 
@@ -53,6 +54,20 @@ services:
     container_name: personalblog-redis
     ports:
       - 6379:6379
+    networks:
+      - app
+
+  personalblog-nodejs:  # Adicionando o serviço Node.js
+    image: node:latest  # Use a versão do Node.js desejada
+    container_name: personalblog-nodejs
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html/
+    command: ["npm", "run", "dev"]  # Substitua pelo seu comando Vite
+    ports:
+     - 3009:3009
+    depends_on:
+      - "personalblog-db"
     networks:
       - app
 networks:

@@ -6,12 +6,13 @@ config:
   xdebug: true
 services:
   node:
-    type: node:16
+    type: node:18
     scanner: false
     ports:
       - 3009:3009
     build:
       - npm install
+      - npm run dev
 tooling:
   dev:
     service: node
