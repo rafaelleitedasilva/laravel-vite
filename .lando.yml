@@ -1,0 +1,22 @@
+name: laravel-vite
+recipe: laravel
+config:
+  webroot: ./public
+  php: '8.1'
+  xdebug: true
+services:
+  node:
+    type: node:18
+    scanner: false
+    ports:
+      - 3009:3009
+    build:
+      - npm install
+      - npm run dev
+tooling:
+  dev:
+    service: node
+    cmd: npm run dev
+  build:
+    service: node
+    cmd: npm run build
