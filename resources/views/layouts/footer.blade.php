@@ -12,7 +12,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-2 col-lg-3 col-md-4">
-                                <a href="#" class="sm-left text-white" style="font-size: 20px; text-decoration:none;">Currículo <img style="width: 20px;" src="{{Vite::asset('resources/images/download.png')}}" alt=""></a>
+                                <a href="{{Vite::asset('resources/documents/RafaelLeiteDaSilva.pdf')}}" class="sm-left text-white" style="font-size: 20px; text-decoration:none;">Currículo <img style="width: 20px;" src="{{Vite::asset('resources/images/download.png')}}" alt=""></a>
                             </div>
                         </div>
                     </div>
