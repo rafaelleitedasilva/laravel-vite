@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('underconstruction');
+    return redirect()->route('home');
 });
 
 Route::get('/home', function () {
     return view('index');
 })->name('home');
 
-Route::get('/construction', function () {
-    return view('construction');
-})->name('underconstruction');
+// Route::get('/construction', function () {
+//     return view('construction');
+// })->name('underconstruction');
