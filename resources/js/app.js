@@ -22,5 +22,6 @@ import './owl.carousel.min.js';
 import './main.js';
 
 import.meta.glob([ '../images/**' ]);
+import.meta.glob([ '../documents/**' ]);
 import.meta.glob([ '../favicon/**' ]);
 import.meta.glob([ '../scss/**' ]);
