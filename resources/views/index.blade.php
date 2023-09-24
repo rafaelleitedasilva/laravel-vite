@@ -32,9 +32,10 @@
                     <div class="section-tittle mb-35">
                         <h2>/sobre</h2>
                     </div>
-                    <p class="text-white">[ texto descritivo ]</p>
+                    <p class="text-white">
+                        Desde os meus 15 anos, nutro uma profunda paixão pelo universo da programação. Durante esse período, tive a oportunidade de participar de diversos projetos, nos quais tive o privilégio de conhecer e aprender com excelentes programadores. Essas experiências enriquecedoras me deram um leque de possibilidades que me fizeram provar de muitas linguagens e arquiteturas diferentes.</p>
                   
-                    <p class="text-white">[ texto descritivo ]</p>
+                    <p class="text-white">Atualmente trabalho em diversos projetos assíncronos, dentre eles um blog para publicação de textos autorais e um sistema de print on demand, idealizado por <a class="text-white" style="border-bottom: 1px dashed white" href="https://github.com/EdilsonBaggio">Edilson Santos</a> e seu irmão Edson Santos. Além dos serviços já concomitantes que possuo na consultoria.</p>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -47,19 +48,19 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="experience">
                     <span>+ 5 anos</span>
-                    <p class="text-white">estudando inúmeras linguagens e aperfeiçoando o meu código <br> com conceitos SOLID e MVC</p>
+                    <p class="text-white">Estudando inúmeras linguagens e aperfeiçoando o meu código com conceitos SOLID e MVC</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="experience">
-                    <span>APIS</span>
-                    <p class="text-white">Ampla experiência com desenvolvimento de APIs REST<br> utilizando Laravel</p>
+                    <span>APIs</span>
+                    <p class="text-white">Ampla experiência com desenvolvimento de APIs REST utilizando Lumen</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="experience">
                     <span>Web</span>
-                    <p class="text-white">desenvolvimento web profissional <br> com testes automatizados de e2e (end to end)</p>
+                    <p class="text-white">Desenvolvimento web profissional com testes automatizados de E2E (end to end)</p>
                 </div>
             </div>
         </div>
@@ -78,10 +79,10 @@
                   <div class="single-about">
                       <div class="tittle-experience">
                           <h3 class="text-white">Analista de Sistemas</h3>
-                          <p class="text-white">21 fev 2022 | 19 jun 2023 <small> ~ 1a4m </small></p>
+                          <p class="text-white">21 fev 2022 | 19 jun 2023</p>
                       </div>
                       <div class="experience-link text-white">
-                          <a href="#">São Bernardo do Campo, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                          <a href="#">São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
                       </div>
                   </div>
               </div>
@@ -186,6 +187,11 @@
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" style="width: 85%"></div>
                           </div>
                           <hr>
+                          <p>Postman</p>
+                          <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" style="width: 80%"></div>
+                          </div>
+                          <hr>
                           <p>MySQL</p>
                           <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" style="width: 65%"></div>
@@ -248,7 +254,7 @@
       </div>
   </div>
 
-  {{-- <div class="gallery-area section-padding40" id="trabalhos">
+  <div class="gallery-area section-padding40" id="trabalhos">
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
@@ -260,29 +266,32 @@
           <div class="row justify-content-between">
               <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-6 col-sm-6">
                   <div class="box snake mb-30">
-                      <div class="gallery-img small-img " style="background-image: url();"></div>
+                      <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/fluit.jpeg')}});background-position: center center;"></div>
                       <div class="overlay">
                           <div class="overlay-content">
-                              <a href="assets/img/gallery/gallery1.png" class="img-pop-up"><i class="ti-plus"></i></a>
+                                <img style="width: 100px;" src="{{Vite::asset('resources/images/choppup-logo.png')}}" alt="">
+                                <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
                           </div>
                       </div>
                   </div>
               </div>
               <div class="col-xl-5 ol-lg-6 col-lg-6 col-md-6 col-sm-6">
                   <div class="box snake mb-30">
-                      <div class="gallery-img small-img " style="background-image: url();"></div>
+                      <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/sestagio.jpeg')}});background-position: center center;"></div>
                       <div class="overlay">
                           <div class="overlay-content">
-                              <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                                <img style="width: 100px;" src="{{Vite::asset('resources/images/senai-logo.png')}}" alt="">
+                                <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
                           </div>
                       </div>
                   </div>
               </div>
               <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-6 col-sm-6">
                   <div class="box snake mb-30">
-                      <div class="gallery-img small-img " style="background-image: url();"></div>
+                      <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/alumbra.jpeg')}});background-position: center top;"></div>
                       <div class="overlay">
                           <div class="overlay-content">
+                            <img style="width: 100px;" src="{{Vite::asset('resources/images/alumbra-logo.png')}}" alt="">
                               <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
                           </div>
                       </div>
@@ -300,7 +309,7 @@
               </div>
           </div>
       </div>
-  </div> --}}
+  </div>
 
 </main>
 @endsection

@@ -1604,7 +1604,7 @@ min-height: 365px;
 .background-blur{
 margin: 0;
 background: rgba(255, 255, 255, 0); /* Cor de fundo com transparência */
-backdrop-filter: blur(15px); /* Aplica um desfoque para criar o efeito de vidro */
+backdrop-filter: blur(5px); /* Aplica um desfoque para criar o efeito de vidro */
 }
 // Home Page Heor
 .slider-area{
@@ -1966,7 +1966,7 @@ padding-left: 10px;
 }
 
 .gallery-area{
-background: #13151a;
+background: #000;
 .box{
 position: relative;
 // img
