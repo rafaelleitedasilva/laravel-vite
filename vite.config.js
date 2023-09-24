@@ -7,16 +7,24 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
+            input: [
+            'resources/css/app.css', 
+            'resources/scss/style.scss',
+            'resources/js/app.js',
+        ],refresh: true
         }),
     ],
+    resolve:{
+        alias:{
+            "@":"/resources/js",
+        }
+    },
     server: {
         https: !isDevelopment, // Use HTTPS apenas em produção
         host: true, // Use diferentes hosts para dev e prod
         strictPort: true,
         port: 3009, // Use diferentes portas para dev e prod
-        hmr: { host: '0.0.0.0'},
+        hmr: { host: 'localhost', protocol: 'ws'},
         watch: {
             usePolling: true,
         }

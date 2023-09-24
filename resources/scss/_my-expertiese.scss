@@ -1,0 +1,42 @@
+.our-services{
+    background: #000;
+    
+    .single-services{
+        color: white;
+        padding: 36px 46px 32px 54px;
+        @include transition(.4s);
+        @media #{$md}{
+            padding: 36px 14px 32px 19px;
+        }
+        @media #{$sm}{
+            padding: 36px 14px 32px 19px;
+        }
+        .services-cap{
+
+            h5{
+                font-weight: 300;
+                font-size: 30px;
+                line-height: 1.4;
+                margin-bottom: 24px;
+                @media #{$md}{
+                    font-size: 24px;
+                }
+                @media #{$sm}{
+                    font-size: 24px;
+                }
+            }
+            p{
+                color: white;
+                font-size: 18px;
+                font-weight: 300;
+                @media #{$md}{
+                    font-size: 15px;
+                }
+               
+            }
+        }
+        &.single-services2{
+            border: 1px solid rgba(103, 0, 0,0.15);
+        }
+    }
+}

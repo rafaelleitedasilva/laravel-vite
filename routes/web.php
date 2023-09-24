@@ -17,6 +17,10 @@ Route::get('/', function () {
     return redirect()->route('underconstruction');
 });
 
+Route::get('/home', function () {
+    return view('index');
+})->name('home');
+
 Route::get('/construction', function () {
     return view('construction');
 })->name('underconstruction');
