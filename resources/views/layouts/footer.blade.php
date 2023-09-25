@@ -22,35 +22,40 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                        
                         <!-- contact-form -->
                         <div class="form-wrapper">
                             <div class="row ">
                                 <div class="col-xl-12">
-                                    <div class="small-tittle mb-30">
+                                    <div class="w-100 d-flex flex-wrap justify-content-between small-tittle mb-30">
                                         <h4 class="text-white">Contate-me</h4>
+                                        @if(Session::has('message'))
+                                        <p class="text-white text-right">{{Session::get('message')}}</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-                            <form id="contact-form" action="#" method="POST">
+                            <form id="contact-form" action="{{route('email')}}" method="POST">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-box user-icon mb-25">
-                                            <input type="text" name="name" placeholder="Nome">
+                                            <input type="text" name="name" placeholder="Nome" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-box email-icon mb-25">
-                                            <input type="text" name="email" placeholder="Email">
+                                            <input type="text" name="email" placeholder="Email" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-box email-icon mb-25">
-                                            <input type="text" name="email" placeholder="Assunto">
+                                            <input type="text" name="context" placeholder="Assunto" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-box message-icon mb-25">
-                                            <textarea name="message" id="message" placeholder="Mensagem"></textarea>
+                                            <textarea name="message" id="message" placeholder="Mensagem" required></textarea>
                                         </div>
                                         <div class="submit-info">
                                             <button class="submit-btn2" type="submit">Enviar</button>
