@@ -8,7 +8,7 @@
                         <div class="row align-items-center justify-content-between">
                             <div class="col-xl-7 col-lg-9 col-md-8">
                                 <div class="wantToWork-caption wantToWork-caption2">
-                                    <h3 class="text-white">Quer saber um pouco mais sobre mim?</h3>
+                                    <h3 class="text-white">Quer saber um pouco mais sobre mim ou sobre o meu trabalho?</h3>
                                 </div>
                             </div>
                             <div class="col-xl-2 col-lg-3 col-md-4">
