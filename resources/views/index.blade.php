@@ -79,7 +79,7 @@
                         <div class="single-about">
                             <div class="tittle-experience">
                                 <h3 class="text-white">Analista de Sistemas</h3>
-                                <p class="text-white">21 fev 2022 | 19 jun 2023</p>
+                                <p class="text-white">19 fev 2022 | 19 jun 2023</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
@@ -90,7 +90,7 @@
                         <div class="single-about">
                             <div class="tittle-experience">
                                 <h3 class="text-white">Desenvolvedor Fullstack</h3>
-                                <p class="text-white"> 19 fev 2022 | atual</p>
+                                <p class="text-white"> 19 jun 2022 | atual</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">Campo Belo, São Paulo <i class="fas fa-external-link-alt"></i></a>
