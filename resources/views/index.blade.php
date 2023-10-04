@@ -2,8 +2,8 @@
 @section('content')
 
 <main>
-
-    <!-- Modal de tela inteira -->
+        
+    <!-- Modals -->
     @include('modals')
 
     <div class="slider-area">
@@ -39,7 +39,7 @@
                     <p class="text-white">
                         Desde os meus 15 anos, nutro uma profunda paixão pelo universo da programação. Durante esse período, tive a oportunidade de participar de diversos projetos, nos quais tive o privilégio de conhecer e aprender com excelentes programadores. Essas experiências enriquecedoras me deram um leque de possibilidades que me fizeram provar de muitas linguagens e arquiteturas diferentes.</p>
                         
-                        <p class="text-white">Atualmente trabalho em diversos projetos assíncronos, dentre eles um blog para publicação de textos autorais e um sistema de print on demand, idealizado por <a class="text-white" style="border-bottom: 1px dashed white" href="https://github.com/EdilsonBaggio">Edilson Santos</a> e seu irmão Edson Santos. Além dos serviços já concomitantes que possuo na consultoria.</p>
+                        <p class="text-white">Atualmente trabalho em diversos projetos assíncronos, dentre eles um blog para publicação de textos autorais e um sistema de print on demand, idealizado por <a class="text-white" style="border-bottom: 1px dashed white" href="https://github.com/EdilsonBaggio" target="_blank">Edilson Santos</a> e seu irmão Edson Santos. Além dos serviços já concomitantes que possuo na consultoria.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -253,7 +253,6 @@
                     </div>
                 </div>
                 
-                
             </div>
         </div>
     </div>
@@ -268,7 +267,7 @@
                 </div>
             </div>
             <div class="row justify-content-between">
-                <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-6 col-sm-6" data-bs-toggle="modal" data-bs-target="#fullscreenModalFluit">
+                <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-6 col-sm-6" {{--data-bs-toggle="modal" data-bs-target="#fullscreenModalFluit"--}}>
                     <div class="box snake mb-30">
                         <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/fluit.jpeg')}});background-position: center center;"></div>
                         <div class="overlay">
@@ -280,15 +279,17 @@
                     </div>
                 </div>
                 <div class="col-xl-5 ol-lg-6 col-lg-6 col-md-6 col-sm-6">
-                    <div class="box snake mb-30">
-                        <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/sestagio.jpeg')}});background-position: center center;"></div>
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <img style="width: 170px;" src="{{Vite::asset('resources/images/senai-logo.png')}}" alt="">
-                                <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                    <a href="https://sestagio.vercel.app/" target="_blank">
+                        <div class="box snake mb-30">
+                            <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/sestagio.jpeg')}});background-position: center center;"></div>
+                            <div class="overlay">
+                                <div class="overlay-content">
+                                    <img style="width: 170px;" src="{{Vite::asset('resources/images/senai-logo.png')}}" alt="">
+                                    <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-6 col-sm-6">
                     <div class="box snake mb-30">
@@ -301,27 +302,32 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                    <div class="box snake mb-30">
-                        <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/blogtext.jpeg')}});background-position: center top;"></div>
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <img style="width: 100px;" src="{{Vite::asset('resources/images/blogtext-logo.png')}}" alt="">
-                                <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                    <a href="https://blogtext.vercel.app/" target="_blank">
+                        <div class="box snake mb-30">
+                            <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/blogtext.jpeg')}});background-position: center top;"></div>
+                            <div class="overlay">
+                                <div class="overlay-content">
+                                    <img style="width: 100px;" src="{{Vite::asset('resources/images/blogtext-logo.png')}}" alt="">
+                                    <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                    <div class="box snake mb-30">
-                        <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/mercadoprint.jpeg')}});background-position: center top;"></div>
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <img style="width: 170px;" src="{{Vite::asset('resources/images/mercadoprint-logo.svg')}}" alt="">
-                                <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                    <a href="https://mercadoprint.com.br/" target="_blank">
+                        <div class="box snake mb-30">
+                            <div class="gallery-img small-img " style="background-image: url({{Vite::asset('resources/images/mercadoprint.jpeg')}});background-position: center top;"></div>
+                            <div class="overlay">
+                                <div class="overlay-content">
+                                    <img style="width: 170px;" src="{{Vite::asset('resources/images/mercadoprint-logo.svg')}}" alt="">
+                                    <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
