@@ -26,8 +26,8 @@
                     </div>
                 </div>
             </div>
-          </div> --}}
-          
+        </div> --}}
+        
         @extends('layouts.header')
         @yield('content')
 
