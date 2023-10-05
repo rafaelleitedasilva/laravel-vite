@@ -1966,7 +1966,7 @@ padding-left: 10px;
 }
 
 .gallery-area{
-background: #000;
+background: #000 !important;
 .box{
 position: relative;
 // img
@@ -2179,7 +2179,6 @@ padding-right: 25px;
 padding-right: 30px;
 color: #a0a0a0;
 font-weight: 400;
-text-transform: capitalize;
 border-radius: 0px;
 background: none;
 &::placeholder{
