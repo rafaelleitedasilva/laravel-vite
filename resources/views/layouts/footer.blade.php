@@ -8,11 +8,15 @@
                         <div class="row align-items-center justify-content-between">
                             <div class="col-xl-7 col-lg-9 col-md-8">
                                 <div class="wantToWork-caption wantToWork-caption2">
-                                    <h3 class="text-white">Quer saber um pouco mais sobre mim ou sobre o meu trabalho?</h3>
+                                    <h3 class="text-white">Quer saber um pouco mais sobre mim ou sobre o meu trabalho?
+                                    </h3>
                                 </div>
                             </div>
                             <div class="col-xl-2 col-lg-3 col-md-4">
-                                <a href="{{Vite::asset('resources/documents/RafaelLeiteDaSilva.pdf')}}" class="sm-left text-white" style="font-size: 20px; text-decoration:none;">Currículo <img style="width: 20px;" src="{{Vite::asset('resources/images/download.png')}}" alt=""></a>
+                                <a href="{{ Vite::asset('resources/documents/RafaelLeiteDaSilva.pdf') }}"
+                                    class="sm-left text-white" style="font-size: 20px; text-decoration:none;">Currículo
+                                    <img style="width: 20px;" src="{{ Vite::asset('resources/images/download.png') }}"
+                                        alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -22,20 +26,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        
+
                         <!-- contact-form -->
                         <div class="form-wrapper">
-                            <div class="row ">
+                            <div class="row">
                                 <div class="col-xl-12">
                                     <div class="w-100 d-flex flex-wrap justify-content-between small-tittle mb-30">
                                         <h4 class="text-white">Contate-me</h4>
-                                        @if(Session::has('message'))
-                                        <p class="text-white text-right">{{Session::get('message')}}</p>
+                                        @if (Session::has('message'))
+                                            <p class="text-white text-right">{{ Session::get('message') }}</p>
                                         @endif
                                     </div>
                                 </div>
                             </div>
-                            <form id="contact-form" action="{{route('email')}}" method="POST">
+                            <form id="contact-form" action="{{ route('email') }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6">
@@ -62,7 +66,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form> 
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -84,9 +88,14 @@
                         </div>
                         <div class="col-xl-8 col-lg-8">
                             <div class="footer-copy-right f-right">
-                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados <i class="fa fa-heart" aria-hidden="true"></i> por <a href="https://rafaelleitedasilva.dev.br" target="_blank">Rafael Leite da Silva</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                <p>
+                                    Copyright &copy;
+                                    <script>
+                                        document.write(new Date().getFullYear());
+                                    </script> Todos os direitos reservados <i class="fa fa-heart"
+                                        aria-hidden="true"></i> por <a href="https://rafaelleitedasilva.dev.br"
+                                        target="_blank">Rafael Leite da Silva</a>
+                                </p>
                             </div>
                         </div>
                     </div>
