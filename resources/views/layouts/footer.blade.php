@@ -12,11 +12,19 @@
                                     </h3>
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-lg-3 col-md-4">
+                            <div class="d-flex col-md-4">
                                 <a href="{{ Vite::asset('resources/documents/RafaelLeiteDaSilva.pdf') }}"
-                                    class="sm-left text-white" style="font-size: 20px; text-decoration:none;">Currículo
-                                    <img style="width: 20px;" src="{{ Vite::asset('resources/images/download.png') }}"
-                                        alt=""></a>
+                                    class="submit-btn2 text-white text-center"
+                                    style="font-size: 16px;line-heigth:100%;line-height:40px;border-radius:4px;margin:2px;"
+                                    target="_blank">Currículo
+                                </a>
+                                {{-- <p class="text-white mt-1">\\</p> --}}
+                                <a href="https://github.com/rafaelleitedasilva/Certificados"
+                                    class="submit-btn2 text-white text-center"
+                                    style="font-size: 16px; text-decoration:none;line-height:40px;border-radius:4px;margin:2px;"
+                                    target="_blank">
+                                    Certificados
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -26,7 +34,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-
                         <!-- contact-form -->
                         <div class="form-wrapper">
                             <div class="row">
