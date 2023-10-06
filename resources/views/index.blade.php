@@ -70,8 +70,8 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="experience">
                             <span>Web</span>
-                            <p class="text-white">Desenvolvimento web profissional com testes automatizados de E2E (end to
-                                end)</p>
+                            <p class="text-white">Desenvolvimento web profissional com a agilidade e arquitetura do Laravel
+                                10</p>
                         </div>
                     </div>
                 </div>
