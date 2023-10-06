@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-box email-icon mb-25">
-                                            <input type="text" name="email" placeholder="Email" required>
+                                            <input type="email" name="email" placeholder="Email" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
