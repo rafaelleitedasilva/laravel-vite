@@ -2,9 +2,6 @@
 @section('content')
     <main>
 
-        <!-- Modals -->
-        @include('modals')
-
         <div class="slider-area">
             <div class="single-slider slider-height d-flex align-items-center background-blur">
                 <div class="container">
@@ -304,12 +301,60 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle mb-60">
-                            <h2>/trabalhos</h2>
+                            <h2>/trabalhos-pessoais</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-between">
-                    <div class="offset-xl-1 col-xl-5 ol-lg-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+                        <a href="https://mercadoprint.com.br/" target="_blank">
+                            <div class="box snake mb-30">
+                                <div class="gallery-img small-img "
+                                    style="background-image: url({{ Vite::asset('resources/images/mercadoprint.jpeg') }});background-position: center top;">
+                                </div>
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <img style="width: 170px;"
+                                            src="{{ Vite::asset('resources/images/mercadoprint-logo.svg') }}"
+                                            alt="">
+                                        <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+                        <a href="https://blogtext.vercel.app/" target="_blank">
+                            <div class="box snake mb-30">
+                                <div class="gallery-img small-img "
+                                    style="background-image: url({{ Vite::asset('resources/images/blogtext.jpeg') }});background-position: center top;">
+                                </div>
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <img style="width: 100px;"
+                                            src="{{ Vite::asset('resources/images/blogtext-logo.png') }}" alt="">
+                                        <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="gallery-area section-padding40" id="trabalhos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle mb-60">
+                            <h2>/trabalhos-empresariais</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-xl-5 ol-lg-6 col-lg-6 col-md-6 col-sm-6">
                         <a href="https://sestagio.vercel.app/" target="_blank">
                             <div class="box snake mb-30">
                                 <div class="gallery-img small-img "
@@ -341,47 +386,16 @@
                             </div>
                         </a>
                     </div>
-                    <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                        <div class="box snake mb-30">
-                            <div class="gallery-img small-img "
-                                style="background-image: url({{ Vite::asset('resources/images/alumbra.jpeg') }});background-position: center top;">
-                            </div>
-                            <div class="overlay">
-                                <div class="overlay-content">
-                                    <img style="width: 170px;"
-                                        src="{{ Vite::asset('resources/images/alumbra-logo.png') }}" alt="">
-                                    <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                        <a href="https://blogtext.vercel.app/" target="_blank">
+                        <a href="https://www.alumbra.com.br/web/produtos" target="_blank">
                             <div class="box snake mb-30">
                                 <div class="gallery-img small-img "
-                                    style="background-image: url({{ Vite::asset('resources/images/blogtext.jpeg') }});background-position: center top;">
-                                </div>
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                        <img style="width: 100px;"
-                                            src="{{ Vite::asset('resources/images/blogtext-logo.png') }}" alt="">
-                                        <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                        <a href="https://mercadoprint.com.br/" target="_blank">
-                            <div class="box snake mb-30">
-                                <div class="gallery-img small-img "
-                                    style="background-image: url({{ Vite::asset('resources/images/mercadoprint.jpeg') }});background-position: center top;">
+                                    style="background-image: url({{ Vite::asset('resources/images/alumbra.jpeg') }});background-position: center top;">
                                 </div>
                                 <div class="overlay">
                                     <div class="overlay-content">
                                         <img style="width: 170px;"
-                                            src="{{ Vite::asset('resources/images/mercadoprint-logo.svg') }}"
-                                            alt="">
+                                            src="{{ Vite::asset('resources/images/alumbra-logo.png') }}" alt="">
                                         <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
                                     </div>
                                 </div>
@@ -404,6 +418,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 @endsection
