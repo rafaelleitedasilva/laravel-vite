@@ -43,7 +43,7 @@ class portfolio extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.portfolio',
+            markdown: 'emails.portfolio',
         );
     }
 

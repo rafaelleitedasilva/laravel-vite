@@ -42,7 +42,7 @@ Route::post('/email', function(Request $request){
     $message->to('rafael.leite.14@hotmail.com');
     Mail::send($message);
     Session::flash('message', 'Sua mensagem foi enviada, obrigado por entrar em contato!');
-    return redirect()->back();
+    return redirect('/home#contato');
 })->name('email');
 
 // Route::get('/construction', function () {
