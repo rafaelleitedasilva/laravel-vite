@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <main>
+
         <div class="slider-area">
             <div class="single-slider slider-height d-flex align-items-center background-blur">
                 <div class="container">
