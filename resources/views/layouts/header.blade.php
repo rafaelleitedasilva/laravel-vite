@@ -5,7 +5,7 @@
                 <div class="menu-wrapper d-flex align-items-center justify-content-between">
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                        {{-- <a href="index.html"><img src="" alt=""></a> --}}
                     </div>
                     <!-- Main-menu -->
                     <div class="main-menu f-right d-none d-lg-block">
@@ -17,7 +17,7 @@
                                 <li><a href="#trabalhos">Trabalhos</a></li>
                             </ul>
                         </nav>
-                    </div>          
+                    </div>
                     <!-- Header-btn -->
                     <div class="header-info-right d-none d-lg-block">
                         <a href="#contato" class="btn header-btn">Contato <i class="ti-arrow-right"></i></a>
