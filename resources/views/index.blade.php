@@ -1,10 +1,6 @@
 @extends('layouts.master')
 @section('content')
     <main>
-
-        <!-- Modals -->
-        @include('modals')
-
         <div class="slider-area">
             <div class="single-slider slider-height d-flex align-items-center background-blur">
                 <div class="container">
