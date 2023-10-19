@@ -1,31 +1,32 @@
 version: '3.5'
 
 services:
-  personalblog:
+  website:
     build:
       context: '.'
-    container_name: personalblog-app
+    container_name: website-app
     ports:
       - 80:80
     volumes:
       - .:/var/www/html/
     depends_on:
-      - "personalblog-db"
-      - "personalblog-mail"
-      - "personalblog-nodejs" 
+      - "website-db"
+      - "website-mail"
+      - "website-nodejs" 
+      - "website-redis"
     networks:
       - app
 
-  personalblog-db:
+  website-db:
     image: mysql:8
     tty: true
-    container_name: personalblog-db
+    container_name: website-db
     ports:
       - 3308:3306
     environment:
       - MYSQL_ROOT_PASSWORD=123
       - DB_CONNECTION=mysql
-      - DB_HOST=personalblog-db
+      - DB_HOST=website-db
       - DB_PORT=3306
       - MYSQL_DATABASE=${DB_DATABASE}
       - MYSQL_USER=${DB_USERNAME}
@@ -35,9 +36,9 @@ services:
     networks:
       - app
 
-  personalblog-mail:
+  website-mail:
     image: mailhog/mailhog:latest
-    container_name: personalblog-mail
+    container_name: website-mail
     ports:
       - "8125:8025"
       - "2525:1025"
@@ -49,27 +50,28 @@ services:
     networks:
       - app
     
-  personalblog-redis:
+  website-redis:
     image: redis:latest
-    container_name: personalblog-redis
+    container_name: website-redis
     ports:
       - 6379:6379
     networks:
       - app
 
-  personalblog-nodejs:  # Adicionando o serviço Node.js
+  website-nodejs:  # Adicionando o serviço Node.js
     image: node:latest  # Use a versão do Node.js desejada
-    container_name: personalblog-nodejs
+    container_name: website-nodejs
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html/
     command: ["npm", "run", "dev"]  # Substitua pelo seu comando Vite
     ports:
-     - 3009:3009
+      - 3009:3009
     depends_on:
-      - "personalblog-db"
+      - "website-db"
     networks:
       - app
+
 networks:
   app:
     driver: bridge
