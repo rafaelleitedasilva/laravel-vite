@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\{Mail, Validator};
 
 class WebsiteController extends Controller
 {
+    public function index()
+    {
+        return view('index');
+    }
     public function email(Request $request)
     {
         $rules = [

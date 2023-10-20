@@ -22,9 +22,7 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('/home', function () {
-    return view('index');
-})->name('home');
+Route::get('/home', [WebsiteController::class, 'index'])->name('home');
 
 Route::get('status', function () {
     return redirect('https://stats.uptimerobot.com/MPxZMuxkYQ');

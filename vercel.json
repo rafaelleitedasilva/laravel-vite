@@ -37,5 +37,9 @@
       "VIEW_COMPILED_PATH": "/tmp/views",
       "SSR_TEMP_PATH": "/tmp/ssr",
       "NODE_PATH": "node"
-    }
+    },
+    "crons": [{
+      "path": "/api/cron",
+      "schedule": "0 10 * * *"
+    }]
   }
