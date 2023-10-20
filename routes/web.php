@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\{WebsiteController, GithubController};
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,13 @@ Route::get('status', function () {
 })->name('status');
 
 Route::post('/email', [WebsiteController::class, 'email'])->name('email');
+
+Route::prefix('github')->name('github/')->group(function () {
+    Route::post('/user', [GithubController::class, 'user'])->name('user');
+    Route::get('/repos/{user}/languages', [GithubController::class, 'languages'])->name('owner/repos/languages');
+    Route::get('/repos/{user}/{repo}', [GithubController::class, 'repo'])->name('owner/repo');
+    Route::get('/repo/{user}/{repo}/deployments', [GithubController::class, 'deployments'])->name('owner/repo/deployments');
+});
 
 // Route::get('/construction', function () {
 //     return view('construction');

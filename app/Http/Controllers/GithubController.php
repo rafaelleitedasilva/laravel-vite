@@ -65,14 +65,14 @@ class GithubController extends Controller
 
     public function languages($user)
     {
-        $repos = json_decode($this->repos($user)->getContent(), true);
+        // $repos = json_decode($this->repos($user)->getContent(), true);
 
-        foreach ($repos as $repo) {
-            $repo_name = $repo['name'];
-            $url = 'https://api.github.com/repos/' . $user . '/' . $repo_name . '/languages';
-            $job = new FetchGitHubData($url, $repo_name);
-            dispatch($job);
-        }
+        // foreach ($repos as $repo) {
+        //     $repo_name = $repo['name'];
+        //     $url = 'https://api.github.com/repos/' . $user . '/' . $repo_name . '/languages';
+        //     $job = new FetchGitHubData($url, $repo_name);
+        //     dispatch($job);
+        // }
 
         $languages = DB::table('github_languages')
             ->select('language')
@@ -91,8 +91,6 @@ class GithubController extends Controller
             if ($language == 'Blade') {
                 unset($languages[$index]);
             }
-
-
         }
 
 
