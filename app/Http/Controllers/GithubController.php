@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\FetchGitHubData;
+use App\Models\GithubLanguage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
@@ -72,7 +74,28 @@ class GithubController extends Controller
             dispatch($job);
         }
 
-        return response()->json(["message" => "Trabalhos colocados na fila!"], 200);
+        $languages = DB::table('github_languages')
+            ->select('language')
+            ->groupBy('language')
+            ->get()
+            ->pluck('language')
+            ->toArray();
 
+        foreach ($languages as $index => $language) {
+            if ($language == 'Dockerfile') {
+                $languages[$index] = 'Docker';
+            } elseif ($language == 'Procfile') {
+                $languages[$index] = 'Heroku';
+            }
+
+            if ($language == 'Blade') {
+                unset($languages[$index]);
+            }
+
+
+        }
+
+
+        return view('api.user.languages')->with('languages', $languages);
     }
 }
