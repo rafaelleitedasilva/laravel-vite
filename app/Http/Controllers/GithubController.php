@@ -91,8 +91,6 @@ class GithubController extends Controller
             if ($language == 'Blade') {
                 unset($languages[$index]);
             }
-
-
         }
 
 

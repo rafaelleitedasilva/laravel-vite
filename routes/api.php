@@ -15,9 +15,7 @@ use App\Http\Controllers\{GithubController};
 |
 */
 
-Route::post('/github/user', [GithubController::class, 'user'])->name('github/user');
-
-Route::get('/github/repos/{user}/languages', [GithubController::class, 'languages'])->name('github/owner/repos/languages');
-
-Route::get('/github/repos/{user}/{repo}', [GithubController::class, 'repo'])->name('github/owner/repo');
-Route::get('/github/repo/{user}/{repo}/deployments', [GithubController::class, 'deployments'])->name('github/owner/repo/deployments');
+// Route::post('/github/user', [GithubController::class, 'user'])->name('github/user');
+// Route::get('/github/repos/{user}/languages', [GithubController::class, 'languages'])->name('github/owner/repos/languages');
+// Route::get('/github/repos/{user}/{repo}', [GithubController::class, 'repo'])->name('github/owner/repo');
+// Route::get('/github/repo/{user}/{repo}/deployments', [GithubController::class, 'deployments'])->name('github/owner/repo/deployments');
