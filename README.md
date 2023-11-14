@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/Status-development-green"/>  
 </div>
 
-<h1>API Documentation 📝 </h1>
+<h1>Documentation 📝 </h1>
 
 Installation:
 - Git clone the project `git clone https://github.com/rafaelleitedasilva/laravel-vite.git`
