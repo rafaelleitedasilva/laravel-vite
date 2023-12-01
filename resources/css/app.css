@@ -9,3 +9,15 @@ body{
 a{
     text-decoration: none !important;
 }
+
+.offcanvas{
+    box-shadow: rgba(109, 109, 109, 0.659) -1px -1px 10px;
+    background-color: black !important;
+    color: grey !important;
+}
+
+
+.btn-close{
+    --bs-btn-close-bg: url("x") !important;
+    color: grey !important;
+}
