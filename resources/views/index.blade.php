@@ -97,7 +97,7 @@
                         <div class="single-about">
                             <div class="tittle-experience">
                                 <h3 class="text-white">Analista de Sistemas</h3>
-                                <p class="text-white">19 fev 2022 | 19 jun 2023</p>
+                                <p class="text-white">19 fev 2022 | 19 jun 2023 ({{Carbon\Carbon::create("2022-02-19")->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
@@ -107,8 +107,8 @@
                     <div class="col-xl-12">
                         <div class="single-about">
                             <div class="tittle-experience">
-                                <h3 class="text-white">Desenvolvedor Fullstack</h3>
-                                <p class="text-white"> 19 jun 2022 | atual</p>
+                                <h3 class="text-white">Desenvolvedor FullStack</h3>
+                                <p class="text-white"> 19 jun 2023 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">Campo Belo, São Paulo <i class="fas fa-external-link-alt"></i></a>
