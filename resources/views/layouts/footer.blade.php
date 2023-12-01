@@ -1,3 +1,30 @@
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Copyright</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </button>
+    </div>
+    <div class="offcanvas-body small ">
+        <p class="text-white" style="font-size: 14px;">Todas as outras imagens apresentadas no site são prévias dos serviços desenvolvidoas, e portanto não apresentam direitos autorias. As imagens a seguir foram pegas da internet, essa seção é responsável por dar os devidos créditos a elas:</p>
+        <div class="d-flex flex-wrap">
+            <div class="about-img">
+                <a href="https://i.pinimg.com/originals/05/e9/f2/05e9f2dba5f0bde5ec8bd5af923604e0.gif">
+                    <img width="200" src="https://i.pinimg.com/originals/05/e9/f2/05e9f2dba5f0bde5ec8bd5af923604e0.gif"
+                        alt="Esfera de Partículas">
+                </a>
+            </div>
+            <div class="about-img">
+                <a href="https://64.media.tumblr.com/7fba0a38b3089324d31da2ce998ec9de/6ae3608dc296e9ff-c3/s640x960/1ad528c67b1005a1bb158f29816a91969849c59c.gif">
+                    <img width="200" src="https://64.media.tumblr.com/7fba0a38b3089324d31da2ce998ec9de/6ae3608dc296e9ff-c3/s640x960/1ad528c67b1005a1bb158f29816a91969849c59c.gif" alt="Cubo Mágico">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer>
     <div class="footer-wrappr">
         <div class="footer-top">
@@ -84,19 +111,15 @@
             <div class="container">
                 <div class="footer-border">
                     <div class="row align-items-center">
-                        <div class="col-xl-4 col-lg-4">
-                            {{-- <div class="footer-social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fas fa-globe"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div> --}}
+                        <div class="col-xl-4 col-lg-4 footer-copy-right">
                         </div>
                         <div class="col-xl-8 col-lg-8">
                             <div class="footer-copy-right f-right">
                                 <p>
-                                    Copyright &copy;
+                                    <a
+                                        class="cd-words-wrapper text-decoration-underline text-white-50" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                                        aria-controls="offcanvasBottom">Copyright</a>
+                                    &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
                                     </script> Todos os direitos reservados <i class="fa fa-heart"

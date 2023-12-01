@@ -10,12 +10,19 @@
                             <!-- Hero Caption -->
                             <div class="hero__caption">
                                 <h1>Rafael.</h1>
-                                <p>Desenvolvedor Fullstack</p>
-                                <p class="cd-headline letters scale">Github:
-                                    <a href="https://github.com/rafaelleitedasilva" target="__blank" class="cd-words-wrapper">
-                                        <b class="is-visible">rafaelleitedasilva</b>
-                                    </a>
-                                </p>
+                                <p>Desenvolvedor Fullstack:</p>
+                                <div class="d-flex justify-content-end">
+                                    <p class="cd-headline letters scale">
+                                        <a href="https://github.com/rafaelleitedasilva" target="__blank" class="cd-words-wrapper">
+                                            <b class="is-visible">Github</b>
+                                        </a>
+                                    </p>
+                                    <p class="cd-headline letters scale">
+                                        <a href="https://www.linkedin.com/in/rafael-leite-da-silva-10654a222/" target="__blank" class="cd-words-wrapper">
+                                            <b class="is-visible">Linkedin</b>
+                                        </a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
