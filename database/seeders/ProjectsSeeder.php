@@ -66,8 +66,9 @@ class ProjectsSeeder extends Seeder
             'description' => json_encode([
                 "description" => 
                 "O código por trás do website Alumbra abraça a filosofia do design responsivo, garantindo que a experiência do usuário seja fluida e agradável em uma variedade de dispositivos. A galeria inspiradora do site destaca projetos que demonstram como os produtos Alumbra têm o poder de transformar espaços residenciais, comerciais e industriais.",
-                "tecnologies" => ["Laravel", "Bootstrap", "SqlServer"],
-                "images" => ["logo"=>"alumbra-logo.png", "alumbra.jpeg"]
+                "tecnologies" => ["Laravel", "Bootstrap", "Sql Server"],
+                "images" => ["logo"=>"alumbra-logo.png", "alumbra.jpeg"],
+                "link" => "https://www.alumbra.com.br/web/index"
             ]),
             'type' => 'corp',
             'created_at' => Carbon::now(),
@@ -82,7 +83,8 @@ class ProjectsSeeder extends Seeder
                 "A espinha dorsal do Mercado Print é construída sobre a base sólida do Laravel. A arquitetura elegante facilita a manutenção, escalabilidade e implementação de novos recursos. Esta obra é mais do que um e-commerce; é uma sinfonia de tecnologias, personalização e inovação. Personalize sua experiência, mergulhando no código que torna possível o Mercado Print!",
                 "construction" => true,
                 "tecnologies" => ["Laravel", "Bootstrap", "MySql", "Docker", "Github","Livewire"],
-                "images" => ["logo"=>"mercadoprint-logo.svg", "mercadoprint.jpeg"]
+                "images" => ["logo"=>"mercadoprint-logo.svg", "mercadoprint.jpeg"],
+                "link" => "https://mercadoprint.com.br/"
             ]),
             'type'=>'personal',
             'created_at' => Carbon::now(),
@@ -95,8 +97,10 @@ class ProjectsSeeder extends Seeder
                 "description" => 
                 "Adentre o BlogText, um projeto de publicação de textos autorais que funde elegância e personalização, tecido com Laravel e a estilização refinada do SCSS, proporcionaremos um ambiente único para a expressão literária.",
                 "construction" => true,
-                "tecnologies" => ["Laravel", "Scss", "PlaneScale", "Docker", "Github","Livewire"],
-                "images" => ["logo"=>"mercadoprint-logo.svg", "mercadoprint.jpeg"]
+                "tecnologies" => ["Laravel", "Scss", "PlanetScale", "Docker", "Github","Livewire"],
+                "images" => ["logo"=>"blogtext-logo.png", "blogtext.jpeg"],
+                "github" => "https://github.com/rafaelleitedasilva/blogtext",
+                "link" => "https://blogtext.vercel.app/"
             ]),
             'type'=>'personal',
             'created_at' => Carbon::now(),
@@ -110,7 +114,9 @@ class ProjectsSeeder extends Seeder
                 "Um projeto ambicioso que une TypeScript e React para proporcionar uma experiência de organização e colaboração tão flexível quanto a sua criatividade. Este clone do Notion é uma jornada pelo poder da programação e do design, onde a versatilidade do TypeScript e a agilidade do React se unem para criar uma plataforma de produtividade única.",
                 "construction" => true,
                 "tecnologies" => ["React", "TypeScript", "Convex", "Docker", "Github","Clerk"],
-                "images" => ["logo"=>"jotion-logo.png", "jotion.jpeg"]
+                "images" => ["logo"=>"jotion-logo.svg", "jotion.png"],
+                "github" => "https://github.com/rafaelleitedasilva/jotion",
+                "link" => "https://jotion-seven.vercel.app/"
             ]),
             'type'=>'personal',
             'created_at' => Carbon::now(),

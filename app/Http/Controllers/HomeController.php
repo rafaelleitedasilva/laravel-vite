@@ -7,14 +7,22 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $personal_projects = \App\Models\Projects::where('type','personal')->orderBy('name','ASC')->get()->toArray();
+        $projetos = \App\Models\Projects::orderBy('name','ASC')->get()->toArray();
 
-        foreach($personal_projects as $index=>$value){
+        foreach($projetos as $index=>$value){
             $description = json_decode($value['description'],true);
             $personal_projects[$index]['description']['tecnologies'] = sort($description['tecnologies']);
+            $value['description']=json_decode($value['description'],true);
+            if($value['type'] == 'personal'){
+                $projetos["pessoal"][$index] = $value;
+                unset($projetos[$index]);
+            }else{
+                $projetos["empresa"][$index] = $value;
+                unset($projetos[$index]);
+            }
         }
 
-        return $personal_projects;
 
+        return view('index')->with("projetos",$projetos);
     }
 }
