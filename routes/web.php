@@ -21,9 +21,7 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('/home', function () {
-    return view('index');
-})->name('home');
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/email', function (Request $request) {
     $rules = [

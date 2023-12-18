@@ -97,7 +97,7 @@
                         <div class="single-about">
                             <div class="tittle-experience">
                                 <h3 class="text-white">Analista de Sistemas</h3>
-                                <p class="text-white">19 fev 2022 | 19 jun 2023</p>
+                                <p class="text-white">19 fev 2022 | 19 jun 2023 ({{Carbon\Carbon::create("2022-02-19")->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
@@ -107,11 +107,11 @@
                     <div class="col-xl-12">
                         <div class="single-about">
                             <div class="tittle-experience">
-                                <h3 class="text-white">Desenvolvedor Fullstack</h3>
-                                <p class="text-white"> 19 jun 2022 | atual</p>
+                                <h3 class="text-white">Desenvolvedor FullStack</h3>
+                                <p class="text-white"> 19 jun 2023 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
-                                <a href="#">Campo Belo, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -313,39 +313,60 @@
                     </div>
                 </div>
                 <div class="row justify-content-between">
-                    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                        <a href="https://mercadoprint.com.br/" target="_blank">
-                            <div class="box snake mb-30">
-                                <div class="gallery-img small-img "
-                                    style="background-image: url({{ Vite::asset('resources/images/mercadoprint.jpeg') }});background-position: center top;">
-                                </div>
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                        <img style="width: 170px;"
-                                            src="{{ Vite::asset('resources/images/mercadoprint-logo.svg') }}"
-                                            alt="">
-                                        <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                    @foreach($projetos["pessoal"] as $projeto)
+                        <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+                            <a data-bs-toggle="offcanvas" href="#{{$projeto['name']}}" role="button" aria-controls="{{$projeto['name']}}">
+                                <div class="box snake mb-30">
+                                    <div class="gallery-img small-img "
+                                        style="background-image: url({{ Vite::asset('resources/images/'.$projeto['description']['images'][0]) }});background-position: center top;">
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <img style="width: 170px;"
+                                                src="{{ Vite::asset("resources/images/".$projeto['description']['images']['logo']) }}"
+                                                alt="">
+                                            <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
+                            </a>
+                        </div>
+
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="{{$projeto['name']}}" aria-labelledby="{{$projeto['name']}}Label">
+                            <div class="offcanvas-header">
+                                <h4 class="offcanvas-title text-white" id="offcanvasExampleLabel">{{$projeto['name']}}</h4>
+                                <button type="button" class="p-3 border-0" style="color:white;background-color:transparent;" data-bs-dismiss="offcanvas" aria-label="Close">
+                                    &#x2715
+                                </button>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                        <a href="https://blogtext.vercel.app/" target="_blank">
-                            <div class="box snake mb-30">
-                                <div class="gallery-img small-img "
-                                    style="background-image: url({{ Vite::asset('resources/images/blogtext.jpeg') }});background-position: center top;">
+                            <div class="offcanvas-body">
+                                <div>
+                                    <h6>Descrição:</h6>
+                                    <p class="text-white">{{$projeto['description']['description']}}</p>
                                 </div>
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                        <img style="width: 100px;"
-                                            src="{{ Vite::asset('resources/images/blogtext-logo.png') }}" alt="">
-                                        <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                                <div class="tecnologies">
+                                    <h6>Tecnologias utilizadas:</h6>
+                                    <ul class="p-0 text-white">
+                                        @foreach($projeto['description']['tecnologies'] as $tecnologia)
+                                            <p class="m-0 p-0 text-white">- {{$tecnologia}}</p>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @if(isset($projeto['description']['github']))
+                                    <div class="mt-2">
+                                        <h6  class="m-0 p-0">Github</h6>
+                                        <a class="p-0 text-primary text-decoration-none" href="{{$projeto['description']['github']}}" target="_blank">Repositório {{$projeto['name']}}</a>
                                     </div>
-                                </div>
+                                @endif
+                                @if(isset($projeto['description']['link']))
+                                    <div class="mt-2 float-end">
+                                        <h6 class="d-block m-0 p-0" style="text-align: right;">Link</h6>
+                                        <a class="p-0 text-primary text-decoration-none" href="{{$projeto['description']['link']}}" target="_blank">Acessar {{$projeto['name']}}</a>
+                                    </div>
+                                @endif
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -361,68 +382,60 @@
                     </div>
                 </div>
                 <div class="row justify-content-between">
-                    <div class="col-xl-5 ol-lg-6 col-lg-6 col-md-6 col-sm-6">
-                        <a href="https://sestagio.vercel.app/" target="_blank">
-                            <div class="box snake mb-30">
-                                <div class="gallery-img small-img "
-                                    style="background-image: url({{ Vite::asset('resources/images/sestagio.jpeg') }});background-position: center center;">
-                                </div>
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                        <img style="width: 170px;"
-                                            src="{{ Vite::asset('resources/images/senai-logo.png') }}" alt="">
-                                        <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-5 ol-lg-6 col-lg-6 col-md-6 col-sm-6">
-                        <a href="https://rafaelleitedasilva.github.io/senai-intranet/" target="_blank">
-                            <div class="box snake mb-30">
-                                <div class="gallery-img small-img "
-                                    style="background-image: url({{ Vite::asset('resources/images/senai-intranet.png') }});background-position: center center;">
-                                </div>
-                                <div class="overlay">
-                                    <div class="overlay-content">
-                                        <img style="width: 170px;"
-                                            src="{{ Vite::asset('resources/images/senai-logo.png') }}" alt="">
-                                        <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    @foreach($projetos["empresa"] as $projeto)
                     <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                        <a href="https://www.alumbra.com.br/web/produtos" target="_blank">
+                        <a data-bs-toggle="offcanvas" href="#{{$projeto['name']}}" role="button" aria-controls="{{$projeto['name']}}">
                             <div class="box snake mb-30">
                                 <div class="gallery-img small-img "
-                                    style="background-image: url({{ Vite::asset('resources/images/alumbra.jpeg') }});background-position: center top;">
+                                    style="background-image: url({{ Vite::asset('resources/images/'.$projeto['description']['images'][0]) }});background-position: center top;">
                                 </div>
                                 <div class="overlay">
                                     <div class="overlay-content">
                                         <img style="width: 170px;"
-                                            src="{{ Vite::asset('resources/images/alumbra-logo.png') }}" alt="">
+                                            src="{{ Vite::asset("resources/images/".$projeto['description']['images']['logo']) }}"
+                                            alt="">
                                         <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-xl-5 col-xl-5 col-lg-6 col-md-6 col-sm-6" {{-- data-bs-toggle="modal" data-bs-target="#fullscreenModalFluit" --}}>
-                        <div class="box snake mb-30">
-                            <div class="gallery-img small-img "
-                                style="background-image: url({{ Vite::asset('resources/images/fluit.jpeg') }});background-position: center center;">
+
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="{{$projeto['name']}}" aria-labelledby="{{$projeto['name']}}Label">
+                        <div class="offcanvas-header">
+                            <h4 class="offcanvas-title text-white" id="offcanvasExampleLabel">{{$projeto['name']}}</h4>
+                            <button type="button" class="p-3 border-0" style="color:white;background-color:transparent;" data-bs-dismiss="offcanvas" aria-label="Close">
+                                &#x2715
+                            </button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div>
+                                <h6>Descrição:</h6>
+                                <p class="text-white">{{$projeto['description']['description']}}</p>
                             </div>
-                            <div class="overlay">
-                                <div class="overlay-content">
-                                    <img style="width: 120px;"
-                                        src="{{ Vite::asset('resources/images/choppup-logo.png') }}" alt="">
-                                    <a href="" class="img-pop-up"><i class="ti-plus"></i></a>
+                            <div class="tecnologies">
+                                <h6>Tecnologias utilizadas:</h6>
+                                <ul class="p-0 text-white">
+                                    @foreach($projeto['description']['tecnologies'] as $tecnologia)
+                                        <p class="m-0 p-0 text-white">- {{$tecnologia}}</p>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @if(isset($projeto['description']['github']))
+                                <div class="mt-2">
+                                    <h6  class="m-0 p-0">Github</h6>
+                                    <a class="p-0 text-primary text-decoration-none" href="{{$projeto['description']['github']}}" target="_blank">Repositório {{$projeto['name']}}</a>
                                 </div>
-                            </div>
+                            @endif
+                            @if(isset($projeto['description']['link']))
+                                <div class="mt-2 float-end">
+                                    <h6 class="d-block m-0 p-0" style="text-align: right;">Link</h6>
+                                    <a class="p-0 text-primary text-decoration-none" href="{{$projeto['description']['link']}}" target="_blank">Acessar {{$projeto['name']}}</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
