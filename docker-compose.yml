@@ -12,7 +12,7 @@ services:
     depends_on:
       - "personalblog-db"
       - "personalblog-mail"
-      - "personalblog-nodejs" 
+      - "personalblog-nodejs"
     networks:
       - app
 
@@ -48,7 +48,7 @@ services:
       - MT_MESSAGE_LIMIT=102400001'
     networks:
       - app
-    
+
   personalblog-redis:
     image: redis:latest
     container_name: personalblog-redis

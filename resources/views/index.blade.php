@@ -40,17 +40,13 @@
                                 <h2>/sobre</h2>
                             </div>
                             <p class="text-white">
-                                Desde os meus 15 anos, nutro uma profunda paixão pelo universo da programação. Durante esse
-                                período, tive a oportunidade de participar de diversos projetos, nos quais tive o privilégio
-                                de conhecer e aprender com excelentes programadores. Essas experiências enriquecedoras me
-                                deram um leque de possibilidades que me fizeram provar de muitas linguagens e arquiteturas
-                                diferentes.</p>
+                                Desde os 15 anos, desenvolvo uma profunda paixão pelo universo da programação. Ao longo dessa jornada, tive a oportunidade de participar de diversos projetos, onde aprendi e troquei experiências com programadores talentosos. Essas vivências ampliaram minha visão, permitindo explorar uma variedade de linguagens e arquiteturas distintas.
+                            </p>
 
-                            <p class="text-white">Atualmente trabalho em diversos projetos assíncronos, dentre eles um blog
-                                para publicação de textos autorais e um sistema de print on demand, idealizado por <a
-                                    class="text-white" style="border-bottom: 1px dashed white"
-                                    href="https://github.com/EdilsonBaggio" target="_blank">Edilson Santos</a> e seu irmão
-                                Edson Santos. Além dos serviços já concomitantes que possuo na consultoria.</p>
+                            <p class="text-white">
+                                Atualmente, dedico-me a múltiplos projetos assíncronos, estudo o desenvolvimento de APIs REST com Golang e estou constantemente aperfeiçoando meu inglês.
+                            </p>
+
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -96,6 +92,7 @@
                     <div class="col-xl-12">
                         <div class="single-about">
                             <div class="tittle-experience">
+                                <h4 class="text-white"><strong>Alumbra</strong> </h4>
                                 <h3 class="text-white">Analista de Sistemas</h3>
                                 <p class="text-white">19 fev 2022 | 19 jun 2023 ({{Carbon\Carbon::create("2022-02-19")->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
                             </div>
@@ -107,8 +104,21 @@
                     <div class="col-xl-12">
                         <div class="single-about">
                             <div class="tittle-experience">
-                                <h3 class="text-white">Desenvolvedor FullStack</h3>
-                                <p class="text-white"> 19 jun 2023 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
+                                <h4 class="text-white"><strong>Kasi</strong> </h4>
+                                <h3 class="text-white"> Desenvolvedor FullStack</h3>
+                                <p class="text-white"> 19 jun 2023 | 21 de mar 2024 ({{Carbon\Carbon::create('2024-03-21')->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
+                            </div>
+                            <div class="experience-link text-white">
+                                <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12">
+                        <div class="single-about">
+                            <div class="tittle-experience">
+                                <h4 class="text-white"><strong>GoodStorage</strong></h4>
+                                <h3 class="text-white">  Desenvolvedor FullStack</h3>
+                                <p class="text-white"> 21 de mar 2024 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2024-03-21"))}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>

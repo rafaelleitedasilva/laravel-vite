@@ -28,13 +28,13 @@ class ProjectsSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-        
+
         //Sestagio
         DB::table('projects')->insertOrIgnore([
             'name' => 'Sestagio',
             'corp'=> 'Senai',
             'description' => json_encode([
-                "description" => 
+                "description" =>
                 "O Sestágio oferece às empresas uma plataforma centralizada e intuitiva para cadastrar vagas de estágio, proporcionando uma experiência simplificada e eficiente. As organizações podem detalhar os requisitos específicos, as responsabilidades do estagiário e outros critérios relevantes, garantindo uma correspondência mais precisa com os perfis ideais. Os alunos, por sua vez, encontram no Sestágio uma ferramenta robusta para explorar oportunidades de estágio alinhadas aos seus interesses e habilidades, podendo cadastrar seus currículos de forma fácil e rápida, tornando o processo de candidatura mais eficiente.",
                 "tecnologies" => ["Laravel", "Vercel", "Docker", "PlanetScale", "Github", "Bootstrap"],
                 "images" => ["logo"=>"senai-logo.png", "sestagio.jpeg"]
@@ -49,7 +49,7 @@ class ProjectsSeeder extends Seeder
             'name' => 'Intranet',
             'corp'=> 'Senai',
             'description' => json_encode([
-                "description" => 
+                "description" =>
                 "O SENAI Intranet centraliza a comunicação interna, fornecendo uma plataforma unificada para anúncios, comunicados, notícias institucionais e atualizações importantes. Isso reduz a dispersão de informações e mantém todos os colaboradores informados de maneira consistente.",
                 "tecnologies" => ["HTML", "CSS", "Javascript", "Github", "Bootstrap"],
                 "images" => ["logo"=>"senai-logo.png", "senai-intranet.png"]
@@ -64,7 +64,7 @@ class ProjectsSeeder extends Seeder
             'name' => 'Alumbra',
             'corp'=> 'Alumbra',
             'description' => json_encode([
-                "description" => 
+                "description" =>
                 "O código por trás do website Alumbra abraça a filosofia do design responsivo, garantindo que a experiência do usuário seja fluida e agradável em uma variedade de dispositivos. A galeria inspiradora do site destaca projetos que demonstram como os produtos Alumbra têm o poder de transformar espaços residenciais, comerciais e industriais.",
                 "tecnologies" => ["Laravel", "Bootstrap", "Sql Server"],
                 "images" => ["logo"=>"alumbra-logo.png", "alumbra.jpeg"],
@@ -76,25 +76,25 @@ class ProjectsSeeder extends Seeder
         ]);
 
         //Trabalhos Pessoais
-        DB::table('projects')->insertOrIgnore([
-            'name' => 'MercadoPrint',
-            'description' => json_encode([
-                "description" => 
-                "A espinha dorsal do Mercado Print é construída sobre a base sólida do Laravel. A arquitetura elegante facilita a manutenção, escalabilidade e implementação de novos recursos. Esta obra é mais do que um e-commerce; é uma sinfonia de tecnologias, personalização e inovação. Personalize sua experiência, mergulhando no código que torna possível o Mercado Print!",
-                "construction" => true,
-                "tecnologies" => ["Laravel", "Bootstrap", "MySql", "Docker", "Github","Livewire"],
-                "images" => ["logo"=>"mercadoprint-logo.svg", "mercadoprint.jpeg"],
-                "link" => "https://mercadoprint.com.br/"
-            ]),
-            'type'=>'personal',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]);
+        // DB::table('projects')->insertOrIgnore([
+        //     'name' => 'MercadoPrint',
+        //     'description' => json_encode([
+        //         "description" =>
+        //         "A espinha dorsal do Mercado Print é construída sobre a base sólida do Laravel. A arquitetura elegante facilita a manutenção, escalabilidade e implementação de novos recursos. Esta obra é mais do que um e-commerce; é uma sinfonia de tecnologias, personalização e inovação. Personalize sua experiência, mergulhando no código que torna possível o Mercado Print!",
+        //         "construction" => true,
+        //         "tecnologies" => ["Laravel", "Bootstrap", "MySql", "Docker", "Github","Livewire"],
+        //         "images" => ["logo"=>"mercadoprint-logo.svg", "mercadoprint.jpeg"],
+        //         "link" => "https://mercadoprint.com.br/"
+        //     ]),
+        //     'type'=>'personal',
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now()
+        // ]);
 
         DB::table('projects')->insertOrIgnore([
             'name' => 'BlogText',
             'description' => json_encode([
-                "description" => 
+                "description" =>
                 "Adentre o BlogText, um projeto de publicação de textos autorais que funde elegância e personalização, tecido com Laravel e a estilização refinada do SCSS, proporcionaremos um ambiente único para a expressão literária.",
                 "construction" => true,
                 "tecnologies" => ["Laravel", "Scss", "PlanetScale", "Docker", "Github","Livewire"],
@@ -110,7 +110,7 @@ class ProjectsSeeder extends Seeder
         DB::table('projects')->insertOrIgnore([
             'name' => 'Jotion',
             'description' => json_encode([
-                "description" => 
+                "description" =>
                 "Um projeto ambicioso que une TypeScript e React para proporcionar uma experiência de organização e colaboração tão flexível quanto a sua criatividade. Este clone do Notion é uma jornada pelo poder da programação e do design, onde a versatilidade do TypeScript e a agilidade do React se unem para criar uma plataforma de produtividade única.",
                 "construction" => true,
                 "tecnologies" => ["React", "TypeScript", "Convex", "Docker", "Github","Clerk"],
