@@ -1,7 +1,10 @@
 {
     "version": 2,
     "functions": {
-      "api/index.php": { "runtime": "vercel-php@0.5.3" }
+      "api/index.php": {
+            "runtime": "vercel-php@0.5.3",
+            "maxDuration": 30
+        }
     },
     "routes": [
       {
@@ -24,7 +27,7 @@
     "env": {
       "APP_NAME": "personalBlog",
       "APP_ENV": "production",
-      "APP_DEBUG": "true",
+      "APP_DEBUG": "false",
       "APP_CONFIG_CACHE": "/tmp/config.php",
       "APP_EVENTS_CACHE": "/tmp/events.php",
       "APP_PACKAGES_CACHE": "/tmp/packages.php",
@@ -34,8 +37,8 @@
       "CACHE_DRIVER": "array",
       "LOG_CHANNEL": "stderr",
       "SESSION_DRIVER": "cookie",
-      "VIEW_COMPILED_PATH": "/tmp/views",
       "SSR_TEMP_PATH": "/tmp/ssr",
       "NODE_PATH": "node"
     }
   }
+
