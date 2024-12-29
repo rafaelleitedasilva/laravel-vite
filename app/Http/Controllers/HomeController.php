@@ -55,7 +55,7 @@ class HomeController extends Controller
             Mail::send($message);
             Session::flash('message', $validator->errors());
 
-            return redirect('/home#contato');
+            return redirect('/home');
         } else {
             // Se a validação passar, continue o processo
             $nome = $request->name;
@@ -69,7 +69,7 @@ class HomeController extends Controller
             Mail::send($message);
             Session::flash('message', 'Sua mensagem foi enviada, obrigado por entrar em contato!');
 
-            return redirect('/home#contato');
+            return redirect('/home');
         }
     }
 }

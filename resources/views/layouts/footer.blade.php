@@ -37,36 +37,36 @@
 
 <footer>
     <div class="footer-wrappr">
-        <div class="footer-top">
-            <!-- Want To work -->
-            <section class="wantToWork-area" id="contato">
-                <div class="container">
-                    <div class="wants-wrapper w-padding2">
-                        <div class="row align-items-center justify-content-between">
-                            <div class="col-xl-7 col-lg-9 col-md-8">
-                                <div class="wantToWork-caption wantToWork-caption2">
-                                    <h3 class="text-white">Quer saber um pouco mais sobre mim ou sobre o meu trabalho?
-                                    </h3>
+        <div class="footer-top" id="contato">
+                <!-- Want To work -->
+                {{-- <section class="wantToWork-area" >
+                    <div class="container">
+                        <div class="wants-wrapper w-padding2">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-xl-7 col-lg-9 col-md-8">
+                                    <div class="wantToWork-caption wantToWork-caption2">
+                                        <h3 class="text-white">Quer saber um pouco mais sobre mim ou sobre o meu trabalho?
+                                        </h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="d-flex col-md-4">
-                                <a href="{{ Vite::asset('resources/documents/RafaelLeiteDaSilva.pdf') }}"
-                                    class="submit-btn2 text-white text-center"
-                                    style="font-size: 16px;line-heigth:100%;line-height:40px;border-radius:4px;margin:2px;"
-                                    target="_blank">Currículo
-                                </a>
-                                {{-- <p class="text-white mt-1">\\</p> --}}
-                                <a href="https://github.com/rafaelleitedasilva/Certificados"
-                                    class="submit-btn2 text-white text-center"
-                                    style="font-size: 16px; text-decoration:none;line-height:40px;border-radius:4px;margin:2px;"
-                                    target="_blank">
-                                    Certificados
-                                </a>
+                                <div class="d-flex col-md-4">
+                                    <a href="{{ Vite::asset('resources/documents/RafaelLeiteDaSilva.pdf') }}"
+                                        class="submit-btn2 text-white text-center"
+                                        style="font-size: 16px;line-heigth:100%;line-height:40px;border-radius:4px;margin:2px;"
+                                        target="_blank">Currículo
+                                    </a>
+                                <p class="text-white mt-1">\\</p>
+                                    <a href="https://github.com/rafaelleitedasilva/Certificados"
+                                        class="submit-btn2 text-white text-center"
+                                        style="font-size: 16px; text-decoration:none;line-height:40px;border-radius:4px;margin:2px;"
+                                        target="_blank">
+                                        Certificados
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section> --}}
             <!-- Want To work End -->
             <div class="container">
                 <div class="row">
@@ -75,17 +75,22 @@
                         <div class="form-wrapper">
                             <div class="row">
                                 <div class="col-xl-12">
-                                    <div class="w-100 d-flex flex-wrap justify-content-between small-tittle mb-30">
-                                        <h4 class="text-white">Contate-me</h4>
-                                        @if (Session::has('message'))
-                                            <p class="text-white text-right">{{ Session::get('message') }}</p>
-                                        @endif
+                                    <div class="w-100 d-flex flex-wrap justify-content-between small-tittle">
+                                        <h3 class="text-white">Contate-me</h3>
+                                        <p class="w-100 text-white text-align-end">
+                                            <small>
+                                                Entrando em contato direto pelo
+                                                <strong>E-mail:</strong> rafaelleitedasilva.dev@outlook.com<br>
+                                                Ou utilizando o formulário abaixo.
+                                            </small>
+                                        </p>
+
                                     </div>
                                 </div>
                             </div>
                             <form id="contact-form" action="{{ route('email') }}" method="POST">
                                 @csrf
-                                <div class="row">
+                                <div class="row text-white">
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-box user-icon mb-25">
                                             <input type="text" name="name" placeholder="Nome" required>
@@ -144,3 +149,24 @@
         </div>
     </div>
 </footer>
+
+<!-- Modal de Obrigado -->
+<div id="thankYouModal" class="modal-overlay" style="display: none;" onclick="closeModal()">
+    <div class="modal-content text-white">
+        <h1>Obrigado!</h1>
+        <p class="text-white">Sua mensagem foi enviada, entraremos em contato assim que a nossa equipe receber a sua mensagem.</p>
+    </div>
+</div>
+
+<!-- Script para abrir/fechar o modal -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        @if (Session::has('message'))
+            document.getElementById('thankYouModal').style.display = 'flex';
+        @endif
+    });
+
+    function closeModal() {
+        document.getElementById('thankYouModal').style.display = 'none';
+    }
+</script>

@@ -94,7 +94,7 @@
                             <div class="tittle-experience">
                                 <h4 class="text-white"><strong>Alumbra</strong> </h4>
                                 <h3 class="text-white">Analista de Sistemas</h3>
-                                <p class="text-white">19 fev 2022 | 19 jun 2023 ({{Carbon\Carbon::create("2022-02-19")->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
+                                <p class="text-white">19 fev 2022 | 19 jun 2023 ({{Carbon\Carbon::create("2022-02-19")->diffInMonths(Carbon\Carbon::create("2023-06-19")) + 1}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
@@ -106,7 +106,7 @@
                             <div class="tittle-experience">
                                 <h4 class="text-white"><strong>Kasi</strong> </h4>
                                 <h3 class="text-white"> Desenvolvedor FullStack</h3>
-                                <p class="text-white"> 19 jun 2023 | 21 de mar 2024 ({{Carbon\Carbon::create('2024-03-21')->diffInMonths(Carbon\Carbon::create("2023-06-19"))}} meses)</p>
+                                <p class="text-white"> 19 jun 2023 | 21 de mar 2024 ({{Carbon\Carbon::create('2024-03-21')->diffInMonths(Carbon\Carbon::create("2023-06-19")) + 1}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
@@ -118,7 +118,7 @@
                             <div class="tittle-experience">
                                 <h4 class="text-white"><strong>GoodStorage</strong></h4>
                                 <h3 class="text-white">  Desenvolvedor FullStack</h3>
-                                <p class="text-white"> 21 de mar 2024 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2024-03-21"))}} meses)</p>
+                                <p class="text-white"> 21 de mar 2024 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2024-03-21")) + 1}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
                                 <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
@@ -174,37 +174,37 @@
                             <div class="services-cap">
                                 <h5 class="text-white">Frontend</h5>
                                 <p>HTML5</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 100%"></div>
                                 </div>
                                 <hr>
                                 <p>CSS3</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 100%"></div>
                                 </div>
                                 <hr>
                                 <p>Bootstrap</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 92%"></div>
                                 </div>
                                 <hr>
                                 <p>JavaScript</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 90%"></div>
                                 </div>
                                 <hr>
                                 <p>Vite</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 70%"></div>
                                 </div>
                             </div>
@@ -216,51 +216,51 @@
                             <div class="services-cap">
                                 <h5>Backend</h5>
                                 <p>PHP</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 91%"></div>
                                 </div>
                                 <hr>
                                 <p>Laravel</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 85%"></div>
                                 </div>
                                 <hr>
                                 <p>Postman</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 80%"></div>
                                 </div>
                                 <hr>
                                 <p>MySQL</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 65%"></div>
                                 </div>
                                 <hr>
                                 <p>AWS SDK</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 49%"></div>
                                 </div>
                                 <hr>
                                 <p>AWS S3</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 42%"></div>
                                 </div>
                                 <hr>
                                 <p>NodeJs</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 35%"></div>
                                 </div>
                             </div>
@@ -273,36 +273,36 @@
                                 <h5>Infraestrutura</h5>
 
                                 <p>Git</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 95%"></div>
                                 </div>
 
                                 <hr>
 
                                 <p>Docker</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 91%"></div>
                                 </div>
 
                                 <hr>
 
                                 <p>Vercel</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 70%"></div>
                                 </div>
 
                                 <hr>
 
                                 <p>Heroku</p>
-                                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                                <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
                                         style="width: 50%"></div>
                                 </div>
                             </div>
@@ -381,7 +381,6 @@
             </div>
         </div>
 
-
         <div class="gallery-area section-padding40" id="trabalhos">
             <div class="container">
                 <div class="row">
@@ -437,18 +436,18 @@
                                     <a class="p-0 text-primary text-decoration-none" href="{{$projeto['description']['github']}}" target="_blank">Repositório {{$projeto['name']}}</a>
                                 </div>
                             @endif
-                            @if(isset($projeto['description']['link']))
+                            {{-- @if(isset($projeto['description']['link']))
                                 <div class="mt-2 float-end">
                                     <h6 class="d-block m-0 p-0" style="text-align: right;">Link</h6>
                                     <a class="p-0 text-primary text-decoration-none" href="{{$projeto['description']['link']}}" target="_blank">Acessar {{$projeto['name']}}</a>
                                 </div>
-                            @endif
+                            @endif --}}
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
         </div>
-        </div>
+
     </main>
 @endsection

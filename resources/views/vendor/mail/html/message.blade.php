@@ -21,7 +21,7 @@
     {{-- Footer --}}
     <x-slot:footer>
         <x-mail::footer>
-            © {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
+            © {{ date('Y') }} Rafael Leite da Silva. @lang('Todos os direitos reservados.')
         </x-mail::footer>
     </x-slot:footer>
 </x-mail::layout>
