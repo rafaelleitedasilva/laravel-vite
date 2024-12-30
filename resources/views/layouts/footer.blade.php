@@ -108,7 +108,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-box message-icon mb-25">
-                                            <textarea name="message" id="message" placeholder="Mensagem" required></textarea>
+                                            <textarea style="text-transform: none;" name="message" id="message" placeholder="Mensagem" required ></textarea>
                                         </div>
                                         <div class="submit-info">
                                             <button class="submit-btn2" type="submit">Enviar</button>
