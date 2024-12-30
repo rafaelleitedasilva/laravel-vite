@@ -44,7 +44,7 @@
                             </p>
 
                             <p class="text-white">
-                                Atualmente, dedico-me a múltiplos projetos assíncronos, estudo o desenvolvimento de APIs REST com Golang e estou constantemente aperfeiçoando meu inglês.
+                                Atualmente, dedico-me a múltiplos projetos assíncronos, estudo o desenvolvimento de APIs REST com Golang, Data Analysis com SQL Server e criação de .
                             </p>
 
                         </div>
@@ -92,15 +92,18 @@
                     <div class="col-xl-12">
                         <div class="single-about">
                             <div class="tittle-experience">
-                                <h4 class="text-white"><strong>Alumbra</strong> </h4>
-                                <h3 class="text-white">Analista de Sistemas</h3>
-                                <p class="text-white">19 fev 2022 | 19 jun 2023 ({{Carbon\Carbon::create("2022-02-19")->diffInMonths(Carbon\Carbon::create("2023-06-19")) + 1}} meses)</p>
+                                <h4 class="text-white"><strong>GoodStorage</strong></h4>
+                                <h3 class="text-white">  Desenvolvedor FullStack</h3>
+                                <p class="text-white"> 21 de mar 2024 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2024-03-21")) + 1}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
-                                <a href="#">São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="col-xl-12">
                         <div class="single-about">
                             <div class="tittle-experience">
@@ -113,34 +116,24 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xl-12">
                         <div class="single-about">
                             <div class="tittle-experience">
-                                <h4 class="text-white"><strong>GoodStorage</strong></h4>
-                                <h3 class="text-white">  Desenvolvedor FullStack</h3>
-                                <p class="text-white"> 21 de mar 2024 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2024-03-21")) + 1}} meses)</p>
+                                <h4 class="text-white"><strong>Alumbra</strong> </h4>
+                                <h3 class="text-white">Analista de Sistemas</h3>
+                                <p class="text-white">19 fev 2022 | 19 jun 2023 ({{Carbon\Carbon::create("2022-02-19")->diffInMonths(Carbon\Carbon::create("2023-06-19")) + 1}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
-                                <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="#">São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
+
                     <hr class="text-white">
                     <div class="col-lg-12">
                         <div class="section-tittle2 mb-30 pt-50">
                             <h2>/educacao</h2>
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="single-about">
-                            <div class="tittle-experience">
-                                <h6 class="text-white">SENAI</h6>
-                                <h3 class="text-white">Técnico em Desenvolvimento de Sistemas</h3>
-                                <p class="text-white">19 Jan 2022 | 16 Jun 2023</p>
-                            </div>
-                            <div class="experience-link">
-                                <a href="#">Diadema, São Paulo <i class="fas fa-external-link-alt"></i></a>
-                            </div>
                         </div>
                     </div>
                     <div class="col-xl-12">
@@ -155,6 +148,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-xl-12">
+                        <div class="single-about">
+                            <div class="tittle-experience">
+                                <h6 class="text-white">SENAI</h6>
+                                <h3 class="text-white">Técnico em Desenvolvimento de Sistemas</h3>
+                                <p class="text-white">19 Jan 2022 | 16 Jun 2023</p>
+                            </div>
+                            <div class="experience-link">
+                                <a href="#">Diadema, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -176,35 +183,35 @@
                                 <p>HTML5</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 100%"></div>
                                 </div>
                                 <hr>
                                 <p>CSS3</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 100%"></div>
                                 </div>
                                 <hr>
                                 <p>Bootstrap</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 92%"></div>
                                 </div>
                                 <hr>
                                 <p>JavaScript</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 90%"></div>
                                 </div>
                                 <hr>
                                 <p>Vite</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 70%"></div>
                                 </div>
                             </div>
@@ -218,49 +225,49 @@
                                 <p>PHP</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 91%"></div>
                                 </div>
                                 <hr>
                                 <p>Laravel</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 85%"></div>
                                 </div>
                                 <hr>
                                 <p>Postman</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 80%"></div>
                                 </div>
                                 <hr>
                                 <p>MySQL</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 65%"></div>
                                 </div>
                                 <hr>
                                 <p>AWS SDK</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 49%"></div>
                                 </div>
                                 <hr>
                                 <p>AWS S3</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 42%"></div>
                                 </div>
                                 <hr>
                                 <p>NodeJs</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 35%"></div>
                                 </div>
                             </div>
@@ -275,7 +282,7 @@
                                 <p>Git</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 95%"></div>
                                 </div>
 
@@ -284,7 +291,7 @@
                                 <p>Docker</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 91%"></div>
                                 </div>
 
@@ -293,7 +300,7 @@
                                 <p>Vercel</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 70%"></div>
                                 </div>
 
@@ -302,7 +309,7 @@
                                 <p>Heroku</p>
                                 <div class="progress" role="progressbar" aria-label="Animated example"
                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar progress-bar-animated bg-dark"
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark"
                                         style="width: 50%"></div>
                                 </div>
                             </div>
