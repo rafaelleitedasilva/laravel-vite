@@ -97,7 +97,7 @@
                                 <p class="text-white"> 21 de mar 2024 | atual ({{Carbon\Carbon::now()->diffInMonths(Carbon\Carbon::create("2024-03-21")) + 1}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
-                                <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                                <a >São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                                 <p class="text-white"> 19 jun 2023 | 21 de mar 2024 ({{Carbon\Carbon::create('2024-03-21')->diffInMonths(Carbon\Carbon::create("2023-06-19")) + 1}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
-                                <a href="#">São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                                <a >São Paulo, São Paulo <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                                 <p class="text-white">19 fev 2022 | 19 jun 2023 ({{Carbon\Carbon::create("2022-02-19")->diffInMonths(Carbon\Carbon::create("2023-06-19")) + 1}} meses)</p>
                             </div>
                             <div class="experience-link text-white">
-                                <a href="#">São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                                <a >São Bernardo, São Paulo <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                                 <p class="text-white"> 16 Jun 2023 | cursando</p>
                             </div>
                             <div class="experience-link">
-                                <a href="#">Diadema, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                                <a >Diadema, São Paulo <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                                 <p class="text-white">19 Jan 2022 | 16 Jun 2023</p>
                             </div>
                             <div class="experience-link">
-                                <a href="#">Diadema, São Paulo <i class="fas fa-external-link-alt"></i></a>
+                                <a >Diadema, São Paulo <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
