@@ -22,6 +22,9 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->nam
 
 Route::post('/email', [\App\Http\Controllers\HomeController::class, 'email'])->name('email');
 
+Route::get('/{route}', function () {
+    return redirect()->route('home');
+});
 // Route::get('/construction', function () {
 //     return view('construction');
 // })->name('underconstruction');
