@@ -17,8 +17,9 @@
             </span>
         </button>
     </div>
-    <div class="offcanvas-body small ">
-        <p class="text-white" style="font-size: 14px;">Todas as outras imagens apresentadas no site são prévias dos serviços desenvolvidoas, e portanto não apresentam direitos autorias. As imagens a seguir foram pegas da internet, essa seção é responsável por dar os devidos créditos a elas:</p>
+    <div class="offcanvas-body small">
+        <p class="text-white" style="font-size: 14px;">Todas as outras imagens apresentadas no site são prévias dos serviços desenvolvidos, e portanto não apresentam direitos autorias. As imagens a seguir foram retiradas da internet, essa seção é responsável por dar os devidos créditos a elas:
+        </p>
         <div class="d-flex flex-wrap">
             <div class="about-img">
                 <a href="https://i.pinimg.com/originals/05/e9/f2/05e9f2dba5f0bde5ec8bd5af923604e0.gif">
