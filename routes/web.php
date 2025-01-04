@@ -14,17 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('home');
-});
-
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/email', [\App\Http\Controllers\HomeController::class, 'email'])->name('email');
 
 Route::get('/{route}', function () {
     return redirect()->route('home');
 });
+
 // Route::get('/construction', function () {
 //     return view('construction');
 // })->name('underconstruction');
