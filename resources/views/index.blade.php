@@ -9,7 +9,7 @@
                         <div class="col-xl-12 col-lg-10 col-md-10 col-sm-10">
                             <!-- Hero Caption -->
                             <div class="hero__caption">
-                                <h1>Rafael.</h1>
+                                <h1>Rafael</h1>
                                 <p>Desenvolvedor Fullstack:</p>
                                 <div class="d-flex justify-content-end">
                                     <p class="cd-headline letters scale">
