@@ -1,8 +1,8 @@
 #!/bin/bash
-# Move para o diretório correto
-cd /home/site/wwwroot
 
-# Link simbólico para apontar o root para o public
-cp -r public/* .
+# Copia o nginx.conf customizado (se quiser usar o seu)
+cp /home/site/wwwroot/nginx.conf /etc/nginx/sites-available/default
 
-# Start o PHP built-in (ou apenas deixe o Azure iniciar o Apache/Nginx, se configurado)
+# Reinicia o nginx apontando para a pasta public
+service php8.2-fpm start
+nginx -g "daemon off;"
