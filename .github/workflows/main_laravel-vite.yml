@@ -40,6 +40,10 @@ jobs:
       - name: Build frontend assets
         run: npm run build
 
+      - name: Move public contents to root
+        run: |
+          cp -r public/* .
+
       - name: Clean up unnecessary files
         run: |
           rm -rf node_modules tests .github .git .gitignore .env.example README.md package*.json vite.config.js webpack.mix.js
