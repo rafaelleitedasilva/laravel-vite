@@ -42,7 +42,7 @@ jobs:
 
       - name: Move public contents to root
         run: |
-          cp -r public/* .
+          cp -r public/index.php .
 
       - name: Clean up unnecessary files
         run: |
