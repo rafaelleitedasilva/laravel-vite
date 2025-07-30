@@ -42,7 +42,7 @@ jobs:
 
       - name: Clean up unnecessary files
         run: |
-          rm -rf node_modules tests .github .git .gitignore .env.example README.md package*.json webpack.mix.js
+          rm -rf .github .git .gitignore .env.example README.md
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
