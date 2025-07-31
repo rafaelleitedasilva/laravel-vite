@@ -24,7 +24,7 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
-      - name: Prepare Laravel folders
+      - name: Criar pastas necessárias e permissões
         run: |
           mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
           chmod -R 775 storage bootstrap/cache
@@ -40,11 +40,16 @@ jobs:
       - name: Build frontend assets
         run: npm run build
 
+      - name: Compactar projeto para deploy
+        run: |
+          mkdir package
+          zip -r package/laravel.zip . -x "node_modules/*" "tests/*"
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: laravel-artifact
-          path: .
+          path: package/laravel.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -54,6 +59,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: laravel-artifact
+          path: .
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
@@ -61,4 +67,4 @@ jobs:
           app-name: 'laravel-vite'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C13E471E5F514DE5B6C6355826F912A0 }}
-          package: .
+          package: laravel.zip
