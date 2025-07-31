@@ -64,7 +64,7 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'laravel-vite'
+          app-name: 'vite-laravel'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C13E471E5F514DE5B6C6355826F912A0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_26BE185492474379906D58CCBA75E72B }}
           package: laravel.zip
