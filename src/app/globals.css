@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Design tokens — tema "preto e prata" (sem azul).
+ * PORTFOLIO_MODERNIZATION.md §7.2, revisado.
+ * ------------------------------------------------------------------ */
+@theme {
+  --color-bg: #050506;
+  --color-bg-elev: #0e0f11;
+  --color-bg-elev-2: #16181b;
+  --color-border: #24262b;
+  --color-border-strong: #34373d;
+
+  --color-text: #ececee;
+  --color-text-dim: #9a9ca2;
+
+  /* "accent" = prata / platina */
+  --color-accent: #c9ccd3;
+  --color-accent-hover: #e6e8ec;
+  --color-accent-ink: #050506;
+
+  /* estados — dessaturados para não fugir do preto e prata */
+  --color-success: #a7b3ab;
+  --color-warning: #c8bfa6;
+  --color-danger: #d69a9a;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 10px 34px rgb(0 0 0 / 0.5);
+
+  --breakpoint-xs: 30rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--color-bg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    /* transparente para o campo de estrelas (.space-backdrop, z-index -1) aparecer */
+    background-color: transparent;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  :where(a, button, input, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+    color: #fff;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 48rem) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+  }
+
+  /* Faixa de luz fina no limite das seções — "horizonte". */
+  .edge-glow {
+    position: relative;
+  }
+  .edge-glow::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--color-accent) 45%, transparent),
+      transparent
+    );
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Planetas — marcadores da timeline de experiência.
+ * ------------------------------------------------------------------ */
+.planet {
+  position: relative;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 32% 28%,
+    #f1f2f4 0%,
+    #c2c5cc 34%,
+    #7f838b 62%,
+    #34363c 100%
+  );
+  box-shadow:
+    inset -3px -3px 7px rgba(0, 0, 0, 0.6),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.12),
+    0 0 10px rgba(233, 236, 240, 0.18);
+}
+
+.planet--crater {
+  background:
+    radial-gradient(circle at 62% 58%, rgba(0, 0, 0, 0.28) 0 14%, transparent 15%),
+    radial-gradient(circle at 34% 70%, rgba(0, 0, 0, 0.22) 0 9%, transparent 10%),
+    radial-gradient(circle at 72% 30%, rgba(0, 0, 0, 0.16) 0 7%, transparent 8%),
+    radial-gradient(
+      circle at 32% 28%,
+      #f1f2f4 0%,
+      #c2c5cc 34%,
+      #7f838b 62%,
+      #34363c 100%
+    );
+}
+
+.planet--ring::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200%;
+  height: 60%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  border-radius: 9999px;
+  border: 1px solid rgba(201, 204, 211, 0.55);
+  border-block-end-color: transparent;
+}
+
+/* ------------------------------------------------------------------ *
+ * Fundo de espaço — 2 camadas de estrelas + brilho de núcleo.
+ * Estático (sem repaint no scroll); a camada de deriva usa só transform
+ * (composto na GPU). Sem mix-blend-mode e sem backdrop-filter aqui.
+ * ------------------------------------------------------------------ */
+.space-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      1100px 800px at 72% -12%,
+      rgba(255, 255, 255, 0.055),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 640px at 12% 112%,
+      rgba(255, 255, 255, 0.04),
+      transparent 60%
+    ),
+    var(--color-bg);
+}
+
+.space-backdrop .stars {
+  position: absolute;
+  background-repeat: repeat;
+}
+
+/* camada de profundidade — estática, estrelas maiores */
+.space-backdrop .stars--depth {
+  inset: 0;
+  opacity: 0.5;
+  background-size: 640px 640px;
+  background-image:
+    radial-gradient(2px 2px at 22% 26%, rgba(255, 255, 255, 0.95), transparent),
+    radial-gradient(1.8px 1.8px at 66% 62%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.8px 1.8px at 84% 18%, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(1.6px 1.6px at 40% 84%, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1.6px 1.6px at 12% 60%, rgba(255, 255, 255, 0.7), transparent);
+}
+
+/* camada de deriva — muitas estrelas pequenas, translada 1 tile e repete */
+.space-backdrop .stars--drift {
+  inset: -260px;
+  opacity: 0.42;
+  background-size: 240px 240px;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 24% 64%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 41% 38%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 55% 82%, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 68% 14%, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(1px 1px at 82% 54%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 90% 30%, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 33% 92%, rgba(255, 255, 255, 0.6), transparent);
+  animation: star-drift 220s linear infinite;
+  will-change: transform;
+}
+
+@keyframes star-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-240px, -240px, 0);
+  }
+}
