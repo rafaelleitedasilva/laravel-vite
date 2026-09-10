@@ -1,0 +1,68 @@
+"use client";
+
+import { useMemo, useRef, useState } from "react";
+import type { Project, ProjectType } from "@/types";
+import { ProjectGrid } from "@/components/projects/project-grid";
+import { ProjectDialog } from "@/components/projects/project-dialog";
+import { cn } from "@/lib/utils";
+
+type Filter = "todos" | ProjectType;
+
+const OPTIONS: { value: Filter; label: string }[] = [
+  { value: "todos", label: "Todos" },
+  { value: "corp", label: "Corporativo" },
+  { value: "personal", label: "Pessoal" },
+];
+
+export function ProjectsExplorer({ projects }: { projects: Project[] }) {
+  const [filter, setFilter] = useState<Filter>("todos");
+  const [selected, setSelected] = useState<Project | null>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
+
+  const filtered = useMemo(
+    () => (filter === "todos" ? projects : projects.filter((p) => p.type === filter)),
+    [projects, filter],
+  );
+
+  function open(project: Project, trigger: HTMLElement) {
+    triggerRef.current = trigger;
+    setSelected(project);
+  }
+
+  function close() {
+    setSelected(null);
+    triggerRef.current?.focus();
+    triggerRef.current = null;
+  }
+
+  return (
+    <div>
+      <div
+        role="group"
+        aria-label="Filtrar projetos por tipo"
+        className="mb-8 inline-flex rounded-md border border-border-strong p-1"
+      >
+        {OPTIONS.map((opt) => (
+          <button
+            key={opt.value}
+            type="button"
+            aria-pressed={filter === opt.value}
+            onClick={() => setFilter(opt.value)}
+            className={cn(
+              "rounded px-3 py-1.5 text-sm transition-colors",
+              filter === opt.value
+                ? "bg-accent text-accent-ink"
+                : "text-text-dim hover:text-text",
+            )}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+
+      <ProjectGrid projects={filtered} onSelect={open} />
+
+      {selected ? <ProjectDialog project={selected} onClose={close} /> : null}
+    </div>
+  );
+}
