@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { MotionConfig } from "motion/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -40,9 +41,13 @@ export default function RootLayout({
         />
         <SpaceBackdrop />
         <SkipLink />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+        {/* reducedMotion="user" mutes transform/layout animation for prefers-reduced-motion
+            users automatically, across every motion.* component in the tree. */}
+        <MotionConfig reducedMotion="user">
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+        </MotionConfig>
         <Analytics />
         <SpeedInsights />
       </body>

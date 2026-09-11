@@ -1,6 +1,7 @@
 "use client";
 
 import { type FormEvent, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { Send, Mail } from "lucide-react";
 import {
   contactSchema,
@@ -9,6 +10,7 @@ import {
 } from "@/lib/validation/contact";
 import { Field, TextareaField } from "@/components/ui/field";
 import { Button, buttonClass } from "@/components/ui/button";
+import { transition as motionTransition } from "@/lib/motion";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -34,6 +36,13 @@ function mailtoHref(to: string, d: Draft): string {
   const body = `${d.message}\n\n— ${d.name}${d.email ? ` (${d.email})` : ""}`;
   return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
+
+const fade = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -6 },
+  transition: motionTransition.entrance,
+};
 
 export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
   const startedAt = useMemo(() => Date.now(), []);
@@ -107,74 +116,84 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
     }
   }
 
-  if (status === "success") {
-    return (
-      <div
-        role="status"
-        className="rounded-lg border border-success/40 bg-success/10 p-6 text-sm"
-      >
-        <p className="font-medium text-text">Mensagem enviada. Obrigado pelo contato!</p>
-        <p className="mt-1 text-text-dim">Respondo assim que possível.</p>
-        <button
-          type="button"
-          className="mt-4 text-accent underline underline-offset-4"
-          onClick={() => setStatus("idle")}
-        >
-          Enviar outra mensagem
-        </button>
-      </div>
-    );
-  }
-
   const showEmailFallback = status === "error" && formError !== ERROR_MESSAGES.validation;
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-4">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Nome" name="name" autoComplete="name" error={errors.name} />
-        <Field
-          label="E-mail"
-          name="email"
-          type="email"
-          autoComplete="email"
-          error={errors.email}
-        />
-      </div>
-      <Field label="Assunto" name="context" error={errors.context} />
-      <TextareaField label="Mensagem" name="message" error={errors.message} />
+    <AnimatePresence mode="wait">
+      {status === "success" ? (
+        <motion.div
+          key="success"
+          {...fade}
+          role="status"
+          className="rounded-lg border border-success/40 bg-success/10 p-6 text-sm"
+        >
+          <p className="font-medium text-text">Mensagem enviada. Obrigado pelo contato!</p>
+          <p className="mt-1 text-text-dim">Respondo assim que possível.</p>
+          <button
+            type="button"
+            className="mt-4 text-accent underline underline-offset-4"
+            onClick={() => setStatus("idle")}
+          >
+            Enviar outra mensagem
+          </button>
+        </motion.div>
+      ) : (
+        <motion.form key="form" {...fade} onSubmit={onSubmit} noValidate className="space-y-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Nome" name="name" autoComplete="name" error={errors.name} />
+            <Field
+              label="E-mail"
+              name="email"
+              type="email"
+              autoComplete="email"
+              error={errors.email}
+            />
+          </div>
+          <Field label="Assunto" name="context" error={errors.context} />
+          <TextareaField label="Mensagem" name="message" error={errors.message} />
 
-      {/* Honeypot — hidden from users and assistive tech. */}
-      <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
-        <label htmlFor="contact-company">Empresa (não preencher)</label>
-        <input id="contact-company" name="company" tabIndex={-1} autoComplete="off" />
-      </div>
+          {/* Honeypot — hidden from users and assistive tech. */}
+          <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+            <label htmlFor="contact-company">Empresa (não preencher)</label>
+            <input id="contact-company" name="company" tabIndex={-1} autoComplete="off" />
+          </div>
 
-      <div aria-live="polite">
-        {status === "error" && formError ? (
-          showEmailFallback ? (
-            <div className="rounded-lg border border-danger/40 bg-danger/10 p-4 text-sm">
-              <p className="text-text">{formError}</p>
-              <p className="mt-1 text-text-dim">
-                Envie a mensagem direto pelo seu cliente de e-mail — os campos já vão
-                preenchidos.
-              </p>
-              <a
-                className={`${buttonClass("secondary", "sm")} mt-3`}
-                href={mailtoHref(fallbackEmail, draft)}
-              >
-                <Mail className="size-4" aria-hidden="true" /> Abrir e-mail
-              </a>
-            </div>
-          ) : (
-            <p className="text-sm text-danger">{formError}</p>
-          )
-        ) : null}
-      </div>
+          <div aria-live="polite">
+            <AnimatePresence>
+              {status === "error" && formError ? (
+                showEmailFallback ? (
+                  <motion.div
+                    key="fallback"
+                    {...fade}
+                    className="rounded-lg border border-danger/40 bg-danger/10 p-4 text-sm"
+                  >
+                    <p className="text-text">{formError}</p>
+                    <p className="mt-1 text-text-dim">
+                      Envie a mensagem direto pelo seu cliente de e-mail — os campos já vão
+                      preenchidos.
+                    </p>
+                    <a
+                      className={`${buttonClass("secondary", "sm")} mt-3`}
+                      href={mailtoHref(fallbackEmail, draft)}
+                    >
+                      <Mail className="size-4" aria-hidden="true" /> Abrir e-mail
+                    </a>
+                  </motion.div>
+                ) : (
+                  <motion.p key="validation" {...fade} className="text-sm text-danger">
+                    {formError}
+                  </motion.p>
+                )
+              ) : null}
+            </AnimatePresence>
+          </div>
 
-      <Button type="submit" disabled={status === "submitting"}>
-        <Send className="size-4" aria-hidden="true" />
-        {status === "submitting" ? "Enviando…" : "Enviar mensagem"}
-      </Button>
-    </form>
+          <Button type="submit" disabled={status === "submitting"}>
+            <Send className="size-4" aria-hidden="true" />
+            {status === "submitting" ? "Enviando…" : "Enviar mensagem"}
+          </Button>
+        </motion.form>
+      )}
+    </AnimatePresence>
   );
 }

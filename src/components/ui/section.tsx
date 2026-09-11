@@ -1,10 +1,18 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
 /**
  * A page section with the signature "/slug" mono label as its heading kicker.
  * Keeps the terminal-prompt aesthetic from the old site, now intentional.
+ *
+ * The heading group animates in as the section crosses into view — this is
+ * centralized here so every section gets the same entrance for free instead
+ * of each one re-declaring it. Section-specific content animation (stagger,
+ * parallax, ...) is up to each section's own children.
  */
 export function Section({
   id,
@@ -33,15 +41,21 @@ export function Section({
       )}
     >
       <Container>
-        <p className="mono-label">/{label}</p>
-        <h2
+        <Reveal as="p" className="mono-label">
+          /{label}
+        </Reveal>
+        <Reveal
+          as="h2"
           id={headingId}
+          delay={0.06}
           className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl"
         >
           {title}
-        </h2>
+        </Reveal>
         {intro ? (
-          <p className="mt-3 max-w-2xl text-text-dim">{intro}</p>
+          <Reveal as="p" delay={0.12} className="mt-3 max-w-2xl text-text-dim">
+            {intro}
+          </Reveal>
         ) : null}
         <div className="mt-10">{children}</div>
       </Container>

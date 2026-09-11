@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import { AnimatePresence } from "motion/react";
 import type { Project, ProjectType } from "@/types";
 import { ProjectGrid } from "@/components/projects/project-grid";
 import { ProjectDialog } from "@/components/projects/project-dialog";
@@ -42,27 +43,32 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
         aria-label="Filtrar projetos por tipo"
         className="mb-8 inline-flex rounded-md border border-border-strong p-1"
       >
-        {OPTIONS.map((opt) => (
-          <button
-            key={opt.value}
-            type="button"
-            aria-pressed={filter === opt.value}
-            onClick={() => setFilter(opt.value)}
-            className={cn(
-              "rounded px-3 py-1.5 text-sm transition-colors",
-              filter === opt.value
-                ? "bg-accent text-accent-ink"
-                : "text-text-dim hover:text-text",
-            )}
-          >
-            {opt.label}
-          </button>
-        ))}
+        {OPTIONS.map((opt) => {
+          const active = filter === opt.value;
+          return (
+            <button
+              key={opt.value}
+              type="button"
+              aria-pressed={active}
+              onClick={() => setFilter(opt.value)}
+              className={cn(
+                "rounded px-3 py-1.5 text-sm transition-colors duration-200 active:scale-95",
+                active ? "bg-accent text-accent-ink" : "text-text-dim hover:text-text",
+              )}
+            >
+              {opt.label}
+            </button>
+          );
+        })}
       </div>
 
       <ProjectGrid projects={filtered} onSelect={open} />
 
-      {selected ? <ProjectDialog project={selected} onClose={close} /> : null}
+      <AnimatePresence>
+        {selected ? (
+          <ProjectDialog key={selected.slug} project={selected} onClose={close} />
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 }

@@ -67,3 +67,16 @@ test("mobile menu opens and closes with Escape", async ({ page }) => {
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).toBeHidden();
 });
+
+test("content and interactions still work with prefers-reduced-motion", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+
+  await expect(page.locator("h1")).toContainText("Rafael");
+  await expect(page.getByRole("button", { name: /Fluit/ })).toBeVisible();
+
+  await page.getByRole("button", { name: /Fluit/ }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toBeHidden();
+});

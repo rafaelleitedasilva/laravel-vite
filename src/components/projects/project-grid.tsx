@@ -1,5 +1,8 @@
+"use client";
+
 import type { Project } from "@/types";
 import { ProjectCard } from "@/components/projects/project-card";
+import { StaggerGroup, StaggerItem } from "@/components/motion/stagger";
 
 export function ProjectGrid({
   projects,
@@ -19,16 +22,16 @@ export function ProjectGrid({
   }
 
   return (
-    <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <StaggerGroup as="ul" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((project, i) => (
-        <li key={project.slug} className="flex">
+        <StaggerItem key={project.slug} as="li" className="flex">
           <ProjectCard
             project={project}
             priority={i < priorityCount}
             onSelect={onSelect}
           />
-        </li>
+        </StaggerItem>
       ))}
-    </ul>
+    </StaggerGroup>
   );
 }

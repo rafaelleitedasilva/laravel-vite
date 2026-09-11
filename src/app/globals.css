@@ -137,6 +137,52 @@
       transparent
     );
   }
+
+  /* Pista de rolagem do Hero — flutuação lenta e contínua, opacity+transform apenas. */
+  .scroll-cue {
+    animation: scroll-cue 2.4s ease-in-out infinite;
+  }
+}
+
+/* Satélites da órbita decorativa em "Sobre" — rotação contínua, muito lenta. */
+.orbit-spin {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: orbit-spin 140s linear infinite;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Anel de "posição atual" na timeline de experiência — pulso de radar. */
+.planet-pulse {
+  animation: planet-pulse 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes planet-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.9;
+  }
 }
 
 /* ------------------------------------------------------------------ *
@@ -253,4 +299,74 @@
   to {
     transform: translate3d(-240px, -240px, 0);
   }
+}
+
+/* ------------------------------------------------------------------ *
+ * Estrelas cadentes — raras, curtas, puramente decorativas. Cada uma é
+ * só um ponto + um risco (gradiente); anima apenas transform/opacity,
+ * então não custa nada além de um layer composto.
+ * ------------------------------------------------------------------ */
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow:
+    0 0 16px 4px rgba(255, 255, 255, 0.95),
+    0 0 32px 10px rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  animation-name: shooting-star;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.shooting-star::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 180px;
+  height: 2px;
+  transform-origin: right center;
+  transform: translateY(-50%) rotate(25deg);
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0));
+}
+
+/* flash perto do início do ciclo — com delay baixo, a primeira estrela
+   aparece quase assim que a página carrega. Platô em opacidade 1 (não um
+   pico instantâneo) pra dar tempo real de enxergar antes de sumir. */
+@keyframes shooting-star {
+  0%,
+  3% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 0;
+  }
+  6% {
+    transform: translate(20px, 10px) scale(1);
+    opacity: 1;
+  }
+  16% {
+    transform: translate(140px, 70px) scale(1);
+    opacity: 1;
+  }
+  24%,
+  100% {
+    transform: translate(240px, 120px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Motivo estelar do cabeçalho do modal de projeto — textura estática,
+ * substitui a captura de tela (ver ProjectDialog).
+ * ------------------------------------------------------------------ */
+.modal-motif-stars {
+  opacity: 0.8;
+  background-image:
+    radial-gradient(1px 1px at 20% 35%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 65% 40%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 80% 65%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 90% 28%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 12% 62%, rgba(255, 255, 255, 0.5), transparent);
 }
