@@ -1,7 +1,12 @@
+"use client";
+
 import { Section } from "@/components/ui/section";
 import { getProfile } from "@/lib/content";
 import { ContactForm } from "@/components/sections/contact-form";
 import { ExternalLink } from "@/components/ui/external-link";
+import { Reveal } from "@/components/motion/reveal";
+import { StaggerGroup, StaggerItem } from "@/components/motion/stagger";
+import { stagger } from "@/lib/motion";
 
 export function Contact() {
   const profile = getProfile();
@@ -14,7 +19,7 @@ export function Contact() {
       intro="Aberto a oportunidades, colaborações e trocas técnicas."
     >
       <div className="grid gap-10 md:grid-cols-[1fr_1.4fr]">
-        <div className="space-y-5 text-sm text-text-dim">
+        <Reveal as="div" shape="left" className="space-y-5 text-sm text-text-dim">
           <dl className="space-y-3">
             <div>
               <dt className="font-mono text-xs uppercase tracking-wider">E-mail</dt>
@@ -47,15 +52,17 @@ export function Contact() {
               </div>
             ) : null}
           </dl>
-          <ul className="space-y-2">
+          <StaggerGroup as="ul" gap={stagger.tight} className="space-y-2">
             {profile.socials.map((s) => (
-              <li key={s.href}>
+              <StaggerItem key={s.href} as="li" shape="up-sm">
                 <ExternalLink href={s.href}>{s.label}</ExternalLink>
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
-        </div>
-        <ContactForm fallbackEmail={profile.email} />
+          </StaggerGroup>
+        </Reveal>
+        <Reveal as="div" delay={0.1}>
+          <ContactForm fallbackEmail={profile.email} />
+        </Reveal>
       </div>
     </Section>
   );

@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/components/layout/nav-items";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 import { buttonClass } from "@/components/ui/button";
+import { stagger, transition as motionTransition } from "@/lib/motion";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -51,11 +53,19 @@ export function Header() {
                     href={item.href}
                     aria-current={active === item.id ? "true" : undefined}
                     className={cn(
-                      "rounded-md px-2.5 py-2 text-sm text-text-dim transition-colors hover:text-text",
+                      "relative rounded-md px-2.5 py-2 text-sm text-text-dim transition-colors hover:text-text",
                       active === item.id && "text-text",
                     )}
                   >
                     {item.label}
+                    {/* indicador da seção atual — CSS puro, sem tracking de layout */}
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "absolute inset-x-2 -bottom-px h-px origin-left bg-accent transition-transform duration-300 ease-out",
+                        active === item.id ? "scale-x-100" : "scale-x-0",
+                      )}
+                    />
                   </Link>
                 </li>
               ))}
@@ -83,35 +93,51 @@ export function Header() {
         </div>
       </header>
 
-      {open ? (
-        <div
-          id="mobile-menu"
-          className="fixed inset-x-0 bottom-0 top-16 z-50 overflow-y-auto bg-bg lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu de navegação"
-        >
-          <nav
-            ref={panelRef}
-            aria-label="Navegação móvel"
-            className="container-page py-6"
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            id="mobile-menu"
+            className="fixed inset-x-0 bottom-0 top-16 z-50 overflow-y-auto bg-bg lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu de navegação"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={motionTransition.micro}
           >
-            <ul className="flex flex-col gap-1">
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <Link
-                    href={item.href}
-                    onClick={close}
-                    className="block rounded-md px-3 py-3 text-lg text-text-dim hover:bg-bg-elev hover:text-text"
+            <motion.nav
+              ref={panelRef}
+              aria-label="Navegação móvel"
+              className="container-page py-6"
+              initial="hidden"
+              animate="visible"
+              variants={{ visible: { transition: { staggerChildren: stagger.tight } } }}
+            >
+              <ul className="flex flex-col gap-1">
+                {navItems.map((item) => (
+                  <motion.li
+                    key={item.id}
+                    variants={{
+                      hidden: { opacity: 0, x: -8 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                    transition={motionTransition.entrance}
                   >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      ) : null}
+                    <Link
+                      href={item.href}
+                      onClick={close}
+                      className="block rounded-md px-3 py-3 text-lg text-text-dim hover:bg-bg-elev hover:text-text"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.nav>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }
