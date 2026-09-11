@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types";
 import { Badge } from "@/components/ui/badge";
+import { spring } from "@/lib/motion";
 
 /** Moldura monocromática — trata as prévias de baixa resolução como estética. */
 function CoverFrame({ project, priority }: { project: Project; priority: boolean }) {
@@ -42,10 +46,13 @@ export function ProjectCard({
   onSelect: (project: Project, trigger: HTMLElement) => void;
 }) {
   return (
-    <button
+    <motion.button
       type="button"
       onClick={(e) => onSelect(project, e.currentTarget)}
       aria-haspopup="dialog"
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.985 }}
+      transition={spring.snappy}
       className="group flex w-full flex-1 flex-col overflow-hidden rounded-lg border border-border bg-bg-elev text-left transition-colors hover:border-border-strong"
     >
       <CoverFrame project={project} priority={priority} />
@@ -69,6 +76,6 @@ export function ProjectCard({
           ))}
         </ul>
       </div>
-    </button>
+    </motion.button>
   );
 }

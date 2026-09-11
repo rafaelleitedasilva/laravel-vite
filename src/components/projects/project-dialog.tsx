@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
-import Image from "next/image";
-import { X, Github, ExternalLink as ExternalLinkIcon } from "lucide-react";
+import { motion } from "motion/react";
+import { X, Github, Sparkle, ExternalLink as ExternalLinkIcon } from "lucide-react";
 import type { Project } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { buttonClass } from "@/components/ui/button";
+import { duration, ease, spring, transition as motionTransition } from "@/lib/motion";
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
@@ -54,18 +55,26 @@ export function ProjectDialog({
   }, [onClose]);
 
   return (
-    <div
+    <motion.div
       className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/80 p-4 sm:p-8"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: duration.fast, ease: ease.out }}
     >
-      <div
+      <motion.div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         className="relative my-auto w-full max-w-2xl rounded-xl border border-border bg-bg-elev shadow-md"
+        initial={{ opacity: 0, y: 10, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 6, scale: 0.98 }}
+        transition={spring.soft}
       >
         <button
           type="button"
@@ -77,26 +86,21 @@ export function ProjectDialog({
           <X className="size-5" aria-hidden="true" />
         </button>
 
-        <div className="relative aspect-[16/9] overflow-hidden rounded-t-xl border-b border-border bg-bg-elev-2">
-          {project.cover ? (
-            <Image
-              src={project.cover}
-              alt={project.coverAlt}
-              fill
-              sizes="(min-width: 768px) 42rem, 100vw"
-              className="object-cover"
-            />
-          ) : (
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(24rem_14rem_at_50%_0%,rgba(255,255,255,0.12),transparent)] font-mono text-7xl text-text-dim/40"
-            >
-              {project.name.charAt(0)}
-            </span>
-          )}
+        {/* motivo espacial reduzido — não a captura de tela, só uma lembrança do conceito */}
+        <div
+          aria-hidden="true"
+          className="relative flex h-20 items-center justify-center overflow-hidden rounded-t-xl border-b border-border bg-bg-elev-2 bg-[radial-gradient(70%_140%_at_50%_0%,rgba(233,236,240,0.14),transparent)]"
+        >
+          <span className="modal-motif-stars absolute inset-0" />
+          <Sparkle className="size-5 text-accent" strokeWidth={1.5} />
         </div>
 
-        <div className="p-6 sm:p-8">
+        <motion.div
+          className="p-6 sm:p-8"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...motionTransition.entrance, delay: 0.08 }}
+        >
           <p className="mono-label">{project.corp ?? "Projeto pessoal"}</p>
           <h2 id={titleId} className="mt-2 text-2xl font-semibold tracking-tight">
             {project.name}
@@ -158,8 +162,8 @@ export function ProjectDialog({
               ) : null}
             </div>
           ) : null}
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }
