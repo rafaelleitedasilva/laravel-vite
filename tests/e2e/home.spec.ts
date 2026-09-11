@@ -68,6 +68,17 @@ test("mobile menu opens and closes with Escape", async ({ page }) => {
   await expect(page.getByRole("dialog")).toBeHidden();
 });
 
+test("header CTA is hidden below the lg breakpoint (only the hamburger shows)", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 800 });
+  await page.goto("/");
+  await expect(
+    page.locator("header").getByRole("link", { name: "Fale comigo" }),
+  ).toBeHidden();
+  await expect(page.getByRole("button", { name: "Abrir menu" })).toBeVisible();
+});
+
 test("content and interactions still work with prefers-reduced-motion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");

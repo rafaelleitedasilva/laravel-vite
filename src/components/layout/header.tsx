@@ -74,7 +74,7 @@ export function Header() {
 
           <Link
             href="/#contato"
-            className={cn(buttonClass("secondary", "sm"), "hidden lg:inline-flex")}
+            className={cn(buttonClass("secondary", "sm"), "!hidden lg:!inline-flex")}
           >
             Fale comigo
           </Link>
@@ -82,7 +82,7 @@ export function Header() {
           <button
             ref={toggleRef}
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-md text-text-dim hover:text-text lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-md text-text-dim hover:text-text lg:!hidden"
             aria-expanded={open}
             aria-controls={open ? "mobile-menu" : undefined}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
