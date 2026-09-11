@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { type PointerEvent as ReactPointerEvent, useRef } from "react";
+import { motion, useMotionValue, useSpring } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { spring } from "@/lib/motion";
+import { useFinePointer } from "@/hooks/useMediaQuery";
 
 /** Moldura monocromática — trata as prévias de baixa resolução como estética. */
 function CoverFrame({ project, priority }: { project: Project; priority: boolean }) {
@@ -36,6 +38,8 @@ function CoverFrame({ project, priority }: { project: Project; priority: boolean
   );
 }
 
+const TILT_DEGREES = 7;
+
 export function ProjectCard({
   project,
   priority = false,
@@ -45,14 +49,39 @@ export function ProjectCard({
   priority?: boolean;
   onSelect: (project: Project, trigger: HTMLElement) => void;
 }) {
+  const canTilt = useFinePointer();
+  const cardRef = useRef<HTMLButtonElement>(null);
+  const rawRotateX = useMotionValue(0);
+  const rawRotateY = useMotionValue(0);
+  const rotateX = useSpring(rawRotateX, spring.cursor);
+  const rotateY = useSpring(rawRotateY, spring.cursor);
+
+  function onPointerMove(e: ReactPointerEvent<HTMLButtonElement>) {
+    if (!canTilt || !cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5; // -0.5..0.5
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    rawRotateY.set(px * TILT_DEGREES * 2);
+    rawRotateX.set(py * -TILT_DEGREES * 2);
+  }
+
+  function onPointerLeave() {
+    rawRotateX.set(0);
+    rawRotateY.set(0);
+  }
+
   return (
     <motion.button
+      ref={cardRef}
       type="button"
       onClick={(e) => onSelect(project, e.currentTarget)}
+      onPointerMove={onPointerMove}
+      onPointerLeave={onPointerLeave}
       aria-haspopup="dialog"
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.985 }}
       transition={spring.snappy}
+      style={{ rotateX, rotateY, transformPerspective: 700 }}
       className="group flex w-full flex-1 flex-col overflow-hidden rounded-lg border border-border bg-bg-elev text-left transition-colors hover:border-border-strong"
     >
       <CoverFrame project={project} priority={priority} />

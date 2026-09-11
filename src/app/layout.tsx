@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SkipLink } from "@/components/ui/skip-link";
 import { SpaceBackdrop } from "@/components/space-backdrop";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { baseMetadata, personJsonLd } from "@/lib/seo";
@@ -44,6 +45,7 @@ export default function RootLayout({
         {/* reducedMotion="user" mutes transform/layout animation for prefers-reduced-motion
             users automatically, across every motion.* component in the tree. */}
         <MotionConfig reducedMotion="user">
+          <ScrollProgress />
           <Header />
           <main id="main">{children}</main>
           <Footer />
