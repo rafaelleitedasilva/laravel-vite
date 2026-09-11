@@ -43,6 +43,27 @@ export function Hero() {
     rawY.set(0);
   }
 
+  // CTA magnético — puxa levemente na direção do cursor dentro da própria
+  // área do botão. Só a ação principal ganha isso; o resto do site fica quieto.
+  const magX = useMotionValue(0);
+  const magY = useMotionValue(0);
+  const magSpringX = useSpring(magX, spring.cursor);
+  const magSpringY = useSpring(magY, spring.cursor);
+
+  function onCtaPointerMove(e: ReactPointerEvent<HTMLSpanElement>) {
+    if (!canParallax) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const px = e.clientX - (rect.left + rect.width / 2);
+    const py = e.clientY - (rect.top + rect.height / 2);
+    magX.set(Math.max(-10, Math.min(10, px * 0.3)));
+    magY.set(Math.max(-10, Math.min(10, py * 0.3)));
+  }
+
+  function onCtaPointerLeave() {
+    magX.set(0);
+    magY.set(0);
+  }
+
   return (
     <section
       ref={sectionRef}
@@ -83,9 +104,16 @@ export function Hero() {
           </StaggerItem>
 
           <StaggerItem as="div" shape="up-sm" className="mt-8 flex flex-wrap items-center gap-3">
-            <Link href="/#trabalhos" className={buttonClass("primary", "md")}>
-              Ver trabalhos <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+            <motion.span
+              className="inline-block"
+              onPointerMove={onCtaPointerMove}
+              onPointerLeave={onCtaPointerLeave}
+              style={{ x: magSpringX, y: magSpringY }}
+            >
+              <Link href="/#trabalhos" className={buttonClass("primary", "md")}>
+                Ver trabalhos <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </motion.span>
             <Link href="/#contato" className={buttonClass("secondary", "md")}>
               Fale comigo
             </Link>
