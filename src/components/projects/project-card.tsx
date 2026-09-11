@@ -5,36 +5,23 @@ import { motion, useMotionValue, useSpring } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types";
 import { Badge } from "@/components/ui/badge";
+import { ProjectPlanet } from "@/components/projects/project-planet";
 import { spring } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 import { useFinePointer } from "@/hooks/useMediaQuery";
 
 /**
  * Nem todo projeto tem captura de tela (ou está online pra tirar uma) — em
  * vez de misturar cards com/sem imagem, nenhum projeto mostra screenshot.
- * A capa é sempre um planeta, variando de família a cada card (mesma
- * linguagem visual da timeline de Experiência, só maior).
+ * A capa é sempre um planeta único, gerado a partir do slug (ProjectPlanet).
  */
-const COVER_VARIANTS = [
-  { cls: "project-planet--ring", size: 84 },
-  { cls: "project-planet--crater", size: 72 },
-  { cls: "", size: 80 },
-  { cls: "project-planet--crater", size: 64 },
-  { cls: "project-planet--ring", size: 76 },
-] as const;
-
-function CoverFrame({ index }: { index: number }) {
-  const variant = COVER_VARIANTS[index % COVER_VARIANTS.length]!;
+function CoverFrame({ slug }: { slug: string }) {
   return (
     <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-border bg-bg-elev-2">
       <span aria-hidden="true" className="modal-motif-stars absolute inset-0" />
-      <span
-        aria-hidden="true"
-        className={cn(
-          "project-planet transition-transform duration-500 group-hover:scale-110",
-          variant.cls,
-        )}
-        style={{ width: variant.size, height: variant.size }}
+      <ProjectPlanet
+        seed={slug}
+        size={44}
+        className="transition-transform duration-500 group-hover:scale-110"
       />
       <span
         aria-hidden="true"
@@ -48,11 +35,9 @@ const TILT_DEGREES = 7;
 
 export function ProjectCard({
   project,
-  index,
   onSelect,
 }: {
   project: Project;
-  index: number;
   onSelect: (project: Project, trigger: HTMLElement) => void;
 }) {
   const canTilt = useFinePointer();
@@ -90,7 +75,7 @@ export function ProjectCard({
       style={{ rotateX, rotateY, transformPerspective: 700 }}
       className="group flex w-full flex-1 flex-col overflow-hidden rounded-lg border border-border bg-bg-elev text-left transition-colors hover:border-border-strong"
     >
-      <CoverFrame index={index} />
+      <CoverFrame slug={project.slug} />
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center justify-between gap-2">
           <span className="mono-label text-[0.7rem]">

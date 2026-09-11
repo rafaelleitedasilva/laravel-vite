@@ -21,9 +21,9 @@ export function ProjectGrid({
 
   return (
     <StaggerGroup as="ul" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {projects.map((project, i) => (
+      {projects.map((project) => (
         <StaggerItem key={project.slug} as="li" className="flex">
-          <ProjectCard project={project} index={i} onSelect={onSelect} />
+          <ProjectCard project={project} onSelect={onSelect} />
         </StaggerItem>
       ))}
     </StaggerGroup>

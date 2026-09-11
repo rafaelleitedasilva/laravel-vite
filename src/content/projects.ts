@@ -46,7 +46,7 @@ export const projects: Project[] = [
   {
     slug: "doutores-da-alegria",
     name: "Doutores da Alegria",
-    corp: "Doutores da Alegria",
+    corp: "Kasi",
     type: "corp",
     role: "Desenvolvedor Backend",
     shortDescription: "Integração com o backend da organização para captura de pagamentos.",
