@@ -25,9 +25,19 @@ function mulberry32(seed: number) {
   };
 }
 
+/**
+ * Arredonda pra 2 casas. `Math.sin`/`Math.cos` podem divergir no último bit
+ * entre o V8 do Node (servidor) e o do navegador (cliente) — sem isso, o
+ * gradiente nasce com um cx/cy infinitesimalmente diferente em cada lado e
+ * o React acusa mismatch de hidratação (inofensivo, mas ruidoso).
+ */
+function round(n: number): number {
+  return Math.round(n * 100) / 100;
+}
+
 export function ProjectPlanet({
   seed,
-  size = 44,
+  size = 30,
   className,
 }: {
   /** Normalmente o slug do projeto — estável, então o visual não muda entre builds. */
@@ -38,18 +48,18 @@ export function ProjectPlanet({
   const random = mulberry32(hashSeed(seed));
 
   const lightAngle = random() * Math.PI * 2;
-  const lightX = 50 + Math.cos(lightAngle) * 22;
-  const lightY = 50 + Math.sin(lightAngle) * 22;
+  const lightX = round(50 + Math.cos(lightAngle) * 22);
+  const lightY = round(50 + Math.sin(lightAngle) * 22);
 
   const hasRing = random() < 0.45;
   const ringRotate = Math.round(random() * 160 - 80);
 
   const craterCount = Math.floor(random() * 3);
   const craters = Array.from({ length: craterCount }, () => ({
-    cx: 28 + random() * 44,
-    cy: 28 + random() * 44,
-    r: 3.5 + random() * 6,
-    o: 0.14 + random() * 0.18,
+    cx: round(28 + random() * 44),
+    cy: round(28 + random() * 44),
+    r: round(3.5 + random() * 6),
+    o: round(0.14 + random() * 0.18),
   }));
 
   const gradientId = `planet-grad-${seed}`;

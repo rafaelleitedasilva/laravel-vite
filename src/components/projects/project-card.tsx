@@ -20,7 +20,7 @@ function CoverFrame({ slug }: { slug: string }) {
       <span aria-hidden="true" className="modal-motif-stars absolute inset-0" />
       <ProjectPlanet
         seed={slug}
-        size={44}
+        size={28}
         className="transition-transform duration-500 group-hover:scale-110"
       />
       <span

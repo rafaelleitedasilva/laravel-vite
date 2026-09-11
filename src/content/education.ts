@@ -62,22 +62,22 @@ export const certifications: Certification[] = [
   },
   {
     name: "Segurança da Informação",
-    issuer: "SENAI",
+    issuer: "Curso em Vídeo",
     year: "2023",
   },
   {
     name: "HTML & CSS",
-    issuer: "SENAI",
+    issuer: "Curso em Vídeo",
     year: "2022",
   },
   {
     name: "JavaScript (40h)",
-    issuer: "SENAI",
+    issuer: "Curso em Vídeo",
     year: "2022",
   },
   {
     name: "Hardware (20h)",
-    issuer: "SENAI",
+    issuer: "Curso em Vídeo",
     year: "2022",
   },
   {
