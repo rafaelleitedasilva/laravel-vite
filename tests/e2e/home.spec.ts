@@ -59,6 +59,26 @@ test("project filter narrows the grid", async ({ page }) => {
   await expect(page.getByRole("button", { name: /Fluit/ })).toHaveCount(0);
 });
 
+test("cards stay visually visible (not stuck at opacity 0) across repeated filter switches", async ({
+  page,
+}) => {
+  // Regression test: StaggerGroup's whileInView only fires once per mount —
+  // switching filters back and forth used to leave later cards permanently
+  // at opacity 0 (present in the DOM, invisible). toBeVisible() alone does
+  // NOT catch this (Playwright's visibility check ignores opacity), so this
+  // asserts the actual computed opacity.
+  await page.goto("/");
+  for (const label of ["Corporativo", "Pessoal", "Todos", "Pessoal", "Corporativo"]) {
+    await page.getByRole("button", { name: label, exact: true }).click();
+    const cards = page.locator('button[aria-haspopup="dialog"]');
+    await expect(cards.first()).toBeVisible();
+    const count = await cards.count();
+    for (let i = 0; i < count; i++) {
+      await expect(cards.nth(i)).toHaveCSS("opacity", "1");
+    }
+  }
+});
+
 test("mobile menu opens and closes with Escape", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
   await page.goto("/");

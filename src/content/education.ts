@@ -16,8 +16,35 @@ export const education: EducationItem[] = [
   },
 ];
 
-/** Certificações — mais recente primeiro. */
+/**
+ * Certificações — mais recente primeiro. Curadas a partir de
+ * github.com/rafaelleitedasilva/Certificados: só as de tecnologia (fora
+ * idiomas, segurança do trabalho, economia circular etc.).
+ *
+ * Emissor/ano de "MySQL (40h)" ficou de fora por enquanto — o arquivo do
+ * repositório não deixa claro quem emitiu; confirmar antes de incluir.
+ */
 export const certifications: Certification[] = [
+  {
+    name: "DP-900 — Microsoft Azure Data Fundamentals",
+    issuer: "Green Treinamentos",
+    year: "2026",
+  },
+  {
+    name: "AWS Cloud Practitioner Foundational",
+    issuer: "Green Treinamentos",
+    year: "2026",
+  },
+  {
+    name: "Google Cloud Foundations",
+    issuer: "Green Treinamentos",
+    year: "2026",
+  },
+  {
+    name: "Google Cloud AI Foundations",
+    issuer: "Green Treinamentos",
+    year: "2026",
+  },
   {
     name: "AZ-400 — Designing and Implementing Microsoft DevOps Solutions",
     issuer: "Microsoft",
@@ -32,6 +59,26 @@ export const certifications: Certification[] = [
     name: "Relational Database V8",
     issuer: "freeCodeCamp",
     year: "2024",
+  },
+  {
+    name: "Segurança da Informação",
+    issuer: "Curso em Vídeo",
+    year: "2023",
+  },
+  {
+    name: "HTML & CSS",
+    issuer: "Curso em Vídeo",
+    year: "2022",
+  },
+  {
+    name: "JavaScript (40h)",
+    issuer: "Curso em Vídeo",
+    year: "2022",
+  },
+  {
+    name: "Hardware (20h)",
+    issuer: "Curso em Vídeo",
+    year: "2022",
   },
   {
     name: "AWS Academy Cloud Foundations",

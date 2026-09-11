@@ -16,12 +16,22 @@ import { MOTION_TAGS, type MotionTag } from "@/components/motion/tags";
  * children animate in one after another instead of all at once. Use for any
  * grid/list where "these belong together, in this order" is the point
  * (badges, cards, timeline entries).
+ *
+ * `trigger="view"` (default) gates the reveal on scroll position, once —
+ * right for static content the user scrolls down to. It's the wrong choice
+ * for a list whose *contents* change from user interaction (a filter) after
+ * that first reveal: once the viewport observer has fired and disconnected,
+ * freshly-mounted children have no trigger left and can get stuck at their
+ * hidden variant (invisible, but present in the DOM — this is exactly what
+ * broke the project filter). Pass `trigger="mount"` for those — it animates
+ * in as soon as it mounts, every time, no IntersectionObserver involved.
  */
 export function StaggerGroup({
   children,
   as = "div",
   gap = staggerTokens.normal,
   delay = 0,
+  trigger = "view",
   className,
   "aria-label": ariaLabel,
 }: {
@@ -29,18 +39,22 @@ export function StaggerGroup({
   as?: MotionTag;
   gap?: number;
   delay?: number;
+  trigger?: "view" | "mount";
   className?: string;
   "aria-label"?: string;
 }) {
   const Tag = MOTION_TAGS[as];
+  const viewProps =
+    trigger === "view"
+      ? { whileInView: "visible" as const, viewport: viewportOnce }
+      : { animate: "visible" as const };
   return (
     <Tag
       aria-label={ariaLabel}
       className={className}
       variants={staggerContainer(gap, delay)}
       initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
+      {...viewProps}
     >
       {children}
     </Tag>
