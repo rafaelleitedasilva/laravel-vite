@@ -62,7 +62,11 @@ export function ProjectsExplorer({ projects }: { projects: Project[] }) {
         })}
       </div>
 
-      <ProjectGrid projects={filtered} onSelect={open} />
+      {/* key={filter}: force a fresh mount (fresh IntersectionObserver) per
+          filter — without it, StaggerGroup's whileInView only fires once,
+          ever, and cards for a filter selected after the first one never
+          get their own trigger and stay stuck invisible. */}
+      <ProjectGrid key={filter} projects={filtered} onSelect={open} />
 
       <AnimatePresence>
         {selected ? (
