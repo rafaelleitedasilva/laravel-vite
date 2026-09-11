@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/components/layout/nav-items";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -18,6 +18,12 @@ export function Header() {
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   const close = useCallback(() => setOpen(false), []);
+
+  // header vai ficando menos translúcido conforme a página rola — reforça
+  // que se está "mais fundo" e melhora a leitura sobre conteúdo denso.
+  const { scrollY } = useScroll();
+  const headerAlpha = useTransform(scrollY, [0, 120], [0.72, 0.96]);
+  const headerBackground = useTransform(headerAlpha, (a) => `rgba(5, 5, 6, ${a})`);
 
   useEffect(() => {
     if (!open) return;
@@ -39,7 +45,10 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/90">
+      <motion.header
+        style={{ backgroundColor: headerBackground }}
+        className="sticky top-0 z-40 border-b border-border/70"
+      >
         <div className="container-page flex h-16 items-center justify-between gap-4">
           <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
             rafael<span className="text-accent">.</span>
@@ -91,7 +100,7 @@ export function Header() {
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
-      </header>
+      </motion.header>
 
       <AnimatePresence>
         {open ? (

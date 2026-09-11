@@ -3,7 +3,8 @@
 import { Section } from "@/components/ui/section";
 import { StaggerGroup, StaggerItem } from "@/components/motion/stagger";
 import { Parallax } from "@/components/motion/parallax";
-import { getExperience, getProfile } from "@/lib/content";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
+import { getExperience, getProfile, getProjects, getCertifications } from "@/lib/content";
 
 export function About() {
   const profile = getProfile();
@@ -12,6 +13,13 @@ export function About() {
   const earliestYear = experience
     .map((e) => Number(e.start.slice(0, 4)))
     .sort((a, b) => a - b)[0];
+  const yearsInMarket = earliestYear ? new Date().getFullYear() - earliestYear : undefined;
+
+  const stats = [
+    yearsInMarket ? { value: yearsInMarket, label: "anos de mercado", suffix: "+" } : null,
+    { value: getProjects().length, label: "projetos" },
+    { value: getCertifications().length, label: "certificações" },
+  ].filter((s) => s !== null);
 
   const facts: string[] = [];
   if (current) {
@@ -21,7 +29,6 @@ export function About() {
         : `Última posição: ${current.role} na ${current.company}`,
     );
   }
-  if (earliestYear) facts.push(`No mercado desde ${earliestYear}`);
   facts.push("Foco em PHP/Laravel, Livewire e APIs REST");
   facts.push("TDD com PHPUnit · Docker · Azure DevOps");
 
@@ -44,19 +51,28 @@ export function About() {
             <p key={p.slice(0, 24)}>{p}</p>
           ))}
         </StaggerItem>
-        <StaggerItem
-          as="ul"
-          shape="right"
-          className="space-y-3 border-l border-border pl-5"
-        >
-          {facts.map((f) => (
-            <li key={f} className="text-sm">
-              <span className="mr-2 font-mono text-accent" aria-hidden="true">
-                ›
-              </span>
-              {f}
-            </li>
-          ))}
+        <StaggerItem as="div" shape="right">
+          <div className="grid grid-cols-3 gap-4 border-b border-border pb-6">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <p className="text-3xl font-semibold tracking-tight text-text">
+                  <AnimatedCounter value={s.value} />
+                  {"suffix" in s ? s.suffix : ""}
+                </p>
+                <p className="mt-1 text-xs text-text-dim">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <ul className="mt-6 space-y-3 border-l border-border pl-5">
+            {facts.map((f) => (
+              <li key={f} className="text-sm">
+                <span className="mr-2 font-mono text-accent" aria-hidden="true">
+                  ›
+                </span>
+                {f}
+              </li>
+            ))}
+          </ul>
         </StaggerItem>
       </StaggerGroup>
     </Section>
