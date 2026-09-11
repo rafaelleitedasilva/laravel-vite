@@ -13,10 +13,6 @@ export interface Project {
   /** Full prose, one entry per paragraph */
   body: string[];
   technologies: string[];
-  /** Path under /public, e.g. "/images/fluit.jpeg". Omit to render the starfield placeholder. */
-  cover?: string;
-  /** Alt text for the cover image */
-  coverAlt: string;
   year?: string;
   role?: string;
   repository?: string;

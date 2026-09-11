@@ -32,12 +32,18 @@ describe("content/projects", () => {
     expect(getProject("does-not-exist")).toBeUndefined();
   });
 
-  it("every project has alt text and, when set, a cover under /images", () => {
+  it("every project has a description, at least one tech tag, and body text", () => {
     for (const p of getProjects()) {
-      expect(p.coverAlt.length).toBeGreaterThan(3);
-      if (p.cover !== undefined) {
-        expect(p.cover.startsWith("/images/")).toBe(true);
-      }
+      expect(p.shortDescription.length).toBeGreaterThan(3);
+      expect(p.technologies.length).toBeGreaterThan(0);
+      expect(p.body.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("corp projects name who the work was for; personal ones have no corp", () => {
+    for (const p of getProjects()) {
+      if (p.type === "corp") expect(p.corp).not.toBeNull();
+      else expect(p.corp).toBeNull();
     }
   });
 });
